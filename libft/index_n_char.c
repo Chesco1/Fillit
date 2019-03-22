@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int     *index_n_char(char *str, int c, size_t n)
+int	*index_n_char(char *str, int c, size_t n)
 {
 	size_t	i;
 	size_t	j;
