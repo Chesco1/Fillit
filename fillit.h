@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 12:09:41 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/06 16:36:44 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/22 15:37:25 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 # define T19 "#..##...#"
 
 #include "./libft/libft.h"
-#include "get_next_line.h"
 #include <fcntl.h>
 
 #endif
