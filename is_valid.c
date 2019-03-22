@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 11:48:17 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/22 15:05:44 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/22 18:03:06 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -327,6 +327,18 @@ int		is_legal(int *tetrimino, char *index_field)
 	return (0);
 }
 
+void	remove_tetrimino(int *tetrimino, char *index_field)
+{
+	int i;
+
+    i = 0;
+    while (tetrimino[i] != -1)
+    {
+        index_field[tetrimino[i]] = '.';
+        i++;
+    }
+}
+
 void	place_tetrimino(int *tetrimino, char *index_field)
 {
 	int i;
@@ -339,17 +351,20 @@ void	place_tetrimino(int *tetrimino, char *index_field)
 	}
 }	
 
-int		ft_solve2(int **array, char *field)
+int		ft_solve2(int **array, char *field, int i, int j)
 {
-	int i;
-	int j;
-
-	i = 0;
-	j = 0;
-	if (is_legal(array[i], &field[j]) == 1)
+	if (array[i] == NULL)
+		return (1);
+	while (field[j] != '\0')
 	{
-		place_tetrimino(array[i], &field[j]);
-		i++;
+		if (is_legal(array[i], &field[j]) == 1)
+		{
+			place_tetrimino(array[i], &field[j]);
+			if (ft_solve2(array, field, i + 1, j) == 1)
+				return (1);
+			remove_tetrimino(array[i], &field[j]);
+		}
+		j++;
 	}
 	return (0);
 }
@@ -361,7 +376,7 @@ int		ft_solve(int **array, int tet_amount)
 
 	i = 0;
 	field = make_field(tet_amount);
-	ft_solve2(array, field);
+	ft_solve2(array, field, 0, 0);
 	ft_putstr(field);
 	return (0);
 	ft_putnbr(array[0][2]);
