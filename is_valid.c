@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 11:48:17 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/22 18:03:06 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/23 00:37:09 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int     ft_strequ_in(char const *s1, char const *s2, int **array)
 	{
 		array[i] = index_n_char((char *)s1, '#', 6);
 		array[i][5] = 65 + i;
-		array[i][6] = -2;
+		array[i][6] = 0;
 		i++;
         return (1);
 	}
@@ -83,7 +83,7 @@ int     is_tetrimino(char *str, int len, int **array)
 		(ft_strequ_in(T4, str2, array) == 1 && (i + 2) % 5 != 0) ||
 		(ft_strequ_in(T5, str2, array) == 1 && (i + 2) % 5 != 0 && (i + 3) % 5 != 0) ||
 		(ft_strequ_in(T6, str2, array) == 1 && i % 5 != 0 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T7, str2, array) == 1 && (i + 2) % 5 != 0) ||
+		(ft_strequ_in(T7, str2, array) == 1 && i % 5 != 0) ||
 		(ft_strequ_in(T8, str2, array) == 1 && (i + 2) % 5 != 0 && (i + 3) % 5 != 0) ||
 		(ft_strequ_in(T9, str2, array) == 1 && (i + 2) % 5 != 0) ||
 		(ft_strequ_in(T10, str2, array) == 1 && (i + 2) % 5 != 0 && (i + 3) % 5 != 0) ||
@@ -259,7 +259,7 @@ char	*get_input(int fd)
 	return (input);
 }
 
-void	grow_tets(int **array)
+void	adjust_tets(int **array)
 {
 	int i;
 	int j;
@@ -302,7 +302,7 @@ void	expand_field(char *field, int linelen, int **array)
 		j++;
 	}
 	field[i] = '\0';
-	grow_tets(array);
+	adjust_tets(array);
 }
 	
 char	*make_field(int tet_amount)
@@ -327,6 +327,20 @@ int		is_legal(int *tetrimino, char *index_field)
 	return (0);
 }
 
+int		find_legal_position(int *tetrimino, char *field)
+{
+	int i;
+
+	i = 0;
+	while (field[i] != '\0')
+	{
+		if (is_legal(tetrimino, &field[i]) == 1)
+			return(i);
+		i++;
+	}
+	return (-1);
+}
+
 void	remove_tetrimino(int *tetrimino, char *index_field)
 {
 	int i;
@@ -337,6 +351,7 @@ void	remove_tetrimino(int *tetrimino, char *index_field)
         index_field[tetrimino[i]] = '.';
         i++;
     }
+	tetrimino[6] = 0;
 }
 
 void	place_tetrimino(int *tetrimino, char *index_field)
@@ -349,45 +364,63 @@ void	place_tetrimino(int *tetrimino, char *index_field)
 		index_field[tetrimino[i]] = tetrimino[5];
 		i++;
 	}
+	tetrimino[6] = 1;
 }	
 
-int		ft_solve2(int **array, char *field, int i, int j)
+int		is_done(int **tet_array)
 {
-	if (array[i] == NULL)
-		return (1);
-	while (field[j] != '\0')
+	int i;
+
+	i = 0;
+	while (tet_array[i] != NULL)
 	{
-		if (is_legal(array[i], &field[j]) == 1)
+		if (tet_array[i][6] != 1)
+			return (0);
+		i++;
+	}
+	return (1);	
+}
+
+int		ft_solve2(int **tet_array, char *field)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	if (is_done(tet_array) == 1) // place_tet kan stock aanpassen en remove_tet kan dit ongedaan maken
+		return (1);
+	while (tet_array[i] != NULL)
+	{
+		if (tet_array[i][6] == 1)
 		{
-			place_tetrimino(array[i], &field[j]);
-			if (ft_solve2(array, field, i + 1, j) == 1)
-				return (1);
-			remove_tetrimino(array[i], &field[j]);
+			i++;
+			continue ;
 		}
-		j++;
+		j = find_legal_position(tet_array[i], field);
+		if (j == -1)
+			return (0);
+		place_tetrimino(tet_array[i], &field[j]); // eventueel stock meegeven
+		if (ft_solve2(tet_array, field) == 1)
+			return (1);
+		remove_tetrimino(tet_array[i], &field[j]); // eventueel stock meegeven
+		i++;
 	}
 	return (0);
 }
 
-int		ft_solve(int **array, int tet_amount)
+int		ft_solve(int **tet_array, int tet_amount)
 {
 	char 	*field;
 	int		i;
 
 	i = 0;
 	field = make_field(tet_amount);
-	ft_solve2(array, field, 0, 0);
+	while (ft_solve2(tet_array, field) != 1)
+	{
+		expand_field(field, ft_linelen(field), tet_array);
+	}
 	ft_putstr(field);
-	return (0);
-	ft_putnbr(array[0][2]);
-	ft_putstr(field);
-	ft_putstr("\n\n");
-	expand_field(field, ft_linelen(field), array);
-	ft_putstr(field);
-	ft_putstr("\n\n");
-    expand_field(field, ft_linelen(field), array);
-    ft_putstr(field);
-	ft_putnbr(array[0][2]);
 	return (0);
 }
 
@@ -395,7 +428,7 @@ int		main(int argc, char **argv)
 {
 	int 	fd;
 	char	*input;
-	int		**array;
+	int		**tet_array;
 	int		tet_amount;
 
 	if (argc == 2)
@@ -403,17 +436,17 @@ int		main(int argc, char **argv)
 		fd = open(argv[1], O_RDONLY);
 		input = get_input(fd);
 		tet_amount = (ft_strlen(input) + 1) / 21;
-		array = (int **)malloc(sizeof(int *) * (tet_amount + 1));
+		tet_array = (int **)malloc(sizeof(int *) * (tet_amount + 1));
 		if (fd == -1)
 		{
 			ft_putendl("error opening file");
 			return (0);
 		}		
-		if (input_is_valid(input, array) == 1)
+		if (input_is_valid(input, tet_array) == 1)
 		{
-			array[tet_amount] = NULL;
-			ft_putendl("valid input");
-			ft_solve(array, tet_amount);
+			tet_array[tet_amount] = NULL;
+//			ft_putendl("valid input");
+			ft_solve(tet_array, tet_amount);
 		}
 		else
 			ft_putendl("error"); 
