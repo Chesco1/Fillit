@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 int		ft_linelen(char *str)
 {
@@ -286,7 +285,7 @@ void	adjust_tets_to_field(int **array)
 	}
 }
 
-void	expand_field(char *field, int linelen, int **array)
+void	expand_field(char *field, int linelen, int **tet_array)
 {
 	int i;
 	int j;
@@ -302,20 +301,35 @@ void	expand_field(char *field, int linelen, int **array)
 		j++;
 	}
 	field[i] = '\0';
-	adjust_tets_to_field(array);
+	adjust_tets_to_field(tet_array);
 }
 	
-char	*make_field(int tet_amount)
+char	*make_field(int tet_amount, int** tet_array, int i)
 {
 	char	*field;
-	int i;
-
-	i = 0;
-	field = ft_strnew(400);
-	ft_memset(field, '.', 11);
-	field[3] = '\n';
-	field[7] = '\n';
-	field[11] = '\0';
+	
+	field = ft_memdup("...\n...\n...\0", 200);
+	if (tet_amount >= 2 && tet_amount <= 4)
+	  i = 1;
+	else if (tet_amount == 5 || tet_amount == 6)
+	  i = 2;
+	else if	(tet_amount >= 7 && tet_amount <= 9)
+          i = 3;
+	else if (tet_amount == 10 || tet_amount == 11)
+          i = 4;
+        else if (tet_amount >= 12 && tet_amount <= 16)
+          i = 5;
+	else if (tet_amount >= 17 && tet_amount <= 20)
+          i = 6;
+        else if (tet_amount >= 21 || tet_amount <= 25)
+          i = 7;
+        else
+          i = 8;
+	while (i > 0)
+	  {
+	    expand_field(field, ft_linelen(field), tet_array);
+	    i--;
+	  }
 	return (field);
 }
 
@@ -415,7 +429,7 @@ int		ft_solve(int **tet_array, int tet_amount)
 	int		i;
 
 	i = 0;
-	field = make_field(tet_amount);
+	field = make_field(tet_amount, tet_array, 0);
 	while (ft_solve2(tet_array, field) != 1)
 	{
 		expand_field(field, ft_linelen(field), tet_array);
