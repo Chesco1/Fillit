@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 11:48:17 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/23 01:43:52 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/23 01:46:14 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -335,7 +335,7 @@ int		find_legal_position(int *tetrimino, char *field)
 	while (field[i] != '\0')
 	{
 		if (is_legal(tetrimino, &field[i]) == 1)
-			return(i);
+			return (i);
 		i++;
 	}
 	return (-1);
