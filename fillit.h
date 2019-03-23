@@ -14,8 +14,8 @@
 
 # define FILLIT_H
 
-#include "./libft/libft.h"
-#include <fcntl.h>
+# include "./libft/libft.h"
+# include <fcntl.h>
 
 # define SIZE_TET 21
 # define MAX_TETS 26

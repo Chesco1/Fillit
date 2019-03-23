@@ -15,7 +15,7 @@
 char	*make_field(int tet_amount)
 {
 	char	*field;
-	int 	i;
+	int		i;
 
 	i = 0;
 	field = ft_strnew(400);

@@ -60,7 +60,7 @@ static int		input_is_valid2(char *input)
 {
 	unsigned int	i;
 	unsigned int	j;
-	unsigned int 	strlen;
+	unsigned int	strlen;
 
 	strlen = ft_strlen(input);
 	i = 0;
@@ -102,35 +102,20 @@ static int		input_is_valid1(char *input)
 	return (1);
 }
 
-int		input_is_valid(char *input, int **array)
+int				input_is_valid(char *input, int **array)
 {
 	char	*str;
 	int		i;
 
 	if (input_is_valid1(input) == 0)
-	{
-		ft_putendl("hoi1");
 		return (0);
-	}
 	if (input_is_valid2(input) == 0)
-	{
-		ft_putendl("hoi2");
 		return (0);
-	}
 	if (input_is_valid3(input) == 0)
-	{
-		ft_putendl("hoi3");
 		return (0);
-	}
 	if (input_is_valid4(input) == 0)
-	{
-		ft_putendl("hoi4");
 		return (0);
-	}
 	if (check_tetriminos(input, array) == 0)
-	{
-		ft_putendl("hoi5");
 		return (0);
-	}
 	return (1);
 }

@@ -22,7 +22,7 @@ static int		is_legal(int *tetrimino, char *index_field)
 
 static int		get_legal_pos(int *tetrimino, char *field)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (field[i] != '\0')
@@ -34,10 +34,9 @@ static int		get_legal_pos(int *tetrimino, char *field)
 	return (-1);
 }
 
-
 static int		is_done(int **tet_array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tet_array[i] != NULL)
@@ -46,17 +45,17 @@ static int		is_done(int **tet_array)
 			return (0);
 		i++;
 	}
-	return (1);	
+	return (1);
 }
 
 static int		solve(int **tet_array, char *field)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	if (is_done(tet_array) == 1) 
+	if (is_done(tet_array) == 1)
 		return (1);
 	while (tet_array[i] != NULL)
 	{
@@ -79,7 +78,7 @@ static int		solve(int **tet_array, char *field)
 
 int				fillit_solve(int **tet_array, int tet_amount)
 {
-	char 	*field;
+	char	*field;
 	int		i;
 
 	i = 0;

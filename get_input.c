@@ -17,7 +17,7 @@ char	*get_input(int fd)
 	char	buf[(SIZE_TET * MAX_TETS) + 2];
 	char	*input;
 	int		ret;
-	
+
 	ret = read(fd, buf, (SIZE_TET * MAX_TETS) + 2);
 	buf[ret] = '\0';
 	input = ft_strnew(ft_strlen(buf) + 1);

@@ -14,7 +14,7 @@
 
 int		main(int argc, char **argv)
 {
-	int 	fd;
+	int		fd;
 	char	*input;
 	int		**tet_array;
 	int		tet_amount;
@@ -29,7 +29,7 @@ int		main(int argc, char **argv)
 		{
 			ft_putendl("error opening file");
 			return (0);
-		}		
+		}
 		if (input_is_valid(input, tet_array) == 1)
 		{
 			tet_array[tet_amount] = NULL;
