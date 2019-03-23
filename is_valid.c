@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 11:48:17 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/23 01:01:29 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/23 01:43:52 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -259,7 +259,7 @@ char	*get_input(int fd)
 	return (input);
 }
 
-void	adjust_tets(int **array)
+void	adjust_tets_to_field(int **array)
 {
 	int i;
 	int j;
@@ -302,7 +302,7 @@ void	expand_field(char *field, int linelen, int **array)
 		j++;
 	}
 	field[i] = '\0';
-	adjust_tets(array);
+	adjust_tets_to_field(array);
 }
 	
 char	*make_field(int tet_amount)
