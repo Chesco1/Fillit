@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 11:48:17 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/23 00:37:09 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/23 01:01:29 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -388,7 +388,7 @@ int		ft_solve2(int **tet_array, char *field)
 
 	i = 0;
 	j = 0;
-	if (is_done(tet_array) == 1) // place_tet kan stock aanpassen en remove_tet kan dit ongedaan maken
+	if (is_done(tet_array) == 1) 
 		return (1);
 	while (tet_array[i] != NULL)
 	{
@@ -400,10 +400,10 @@ int		ft_solve2(int **tet_array, char *field)
 		j = find_legal_position(tet_array[i], field);
 		if (j == -1)
 			return (0);
-		place_tetrimino(tet_array[i], &field[j]); // eventueel stock meegeven
+		place_tetrimino(tet_array[i], &field[j]);
 		if (ft_solve2(tet_array, field) == 1)
 			return (1);
-		remove_tetrimino(tet_array[i], &field[j]); // eventueel stock meegeven
+		remove_tetrimino(tet_array[i], &field[j]);
 		i++;
 	}
 	return (0);
