@@ -74,12 +74,14 @@ int					ft_min(int x, int y);
 int					ft_max(int x, int y);
 
 size_t				ft_strlen(const char *str);
+size_t				ft_linelen(const char *str);
 
 int					ft_atoi(const char *c);
 
 int					ft_strchr_int(const char *s, int c);
 
 int					ft_strcmp(const char *s1, const char *s2);
+int					ft_strcmp_ignore_nl(const char *s1, const char *s2);
 int					ft_strequ(char const *s1, char const *s2);
 
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

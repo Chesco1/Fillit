@@ -10,10 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H_
+#ifndef FILLIT_H
 
-# define _FILLIT_H_
+# define FILLIT_H
 
+#include "./libft/libft.h"
+#include <fcntl.h>
+
+# define SIZE_TET 21
+# define MAX_TETS 26
 # define T1 "####"
 # define T2 "#...#...#...#"
 # define T3 "##..##"
@@ -34,7 +39,15 @@
 # define T18 "###..#"
 # define T19 "#..##...#"
 
-#include "./libft/libft.h"
-#include <fcntl.h>
+int		check_tetriminos(char *str, int **array);
+int		ft_strcmp_ignore_nl(const char *s1, const char *s2);
+int		ft_strequ_in(char const *s1, char const *s2, int **array);
+int		fillit_solve(int **tet_array, int tet_amount);
+int		input_is_valid(char *input, int **array);
+char	*get_input(int fd);
+char	*make_field(int tet_amount);
+void	expand_field(char *field, int linelen, int **array);
+void	place_tetrimino(int *tetrimino, char *index_field);
+void	remove_tetrimino(int *tetrimino, char *index_field);
 
 #endif
