@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_delcontent.c                                    :+:    :+:            */
+/*   place_tetrimino.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/16 00:33:38 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/16 00:33:39 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/03/23 18:00:10 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/03/23 18:00:19 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_delcontent(void *content, size_t size)
+void	place_tetrimino(int *tetrimino, char *index_field)
 {
-	free(content);
-	(void)size;
+	int	i;
+
+	i = 0;
+	while (tetrimino[i] != -1)
+	{
+		index_field[tetrimino[i]] = tetrimino[5];
+		i++;
+	}
+	tetrimino[6] = 1;
 }

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_delcontent.c                                    :+:    :+:            */
+/*   ft_linelen.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/16 00:33:38 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/16 00:33:39 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/03/23 16:23:47 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/03/23 16:24:06 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_delcontent(void *content, size_t size)
+size_t	ft_linelen(const char *str)
 {
-	free(content);
-	(void)size;
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0' && str[i] != '\n')
+		i++;
+	return (i);
 }
