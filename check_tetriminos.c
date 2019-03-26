@@ -20,45 +20,45 @@
 // 	return (0);
 // }
 
-static int	is_tetrimino(char *str, int len, int **array)
+static int	is_tetrimino(char *str, int len, char *initial_tets)
 {
 	char			*str2;
 	unsigned int	i;
 
 	i = ft_strchr_int(str, '#');
 	str2 = ft_strsub(str, i, len - i);
-	if ((ft_strequ_in(T1, str2, array) == 1 && i % 5 == 0) ||
-		ft_strequ_in(T2, str2, array) == 1 ||
-		(ft_strequ_in(T3, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T4, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T5, str2, array) == 1 && (i + 2) % 5 != 0 &&
+	if ((ft_strequ_in(T1, str2, initial_tets) == 1 && i % 5 == 0) ||
+		ft_strequ_in(T2, str2, initial_tets) == 1 ||
+		(ft_strequ_in(T3, str2, initial_tets) == 1 && (i + 2) % 5 != 0) ||
+		(ft_strequ_in(T4, str2, initial_tets) == 1 && (i + 2) % 5 != 0) ||
+		(ft_strequ_in(T5, str2, initial_tets) == 1 && (i + 2) % 5 != 0 &&
 			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T6, str2, array) == 1 && i % 5 != 0 &&
+		(ft_strequ_in(T6, str2, initial_tets) == 1 && i % 5 != 0 &&
 			(i + 2) % 5 != 0) ||
-		(ft_strequ_in(T7, str2, array) == 1 && i % 5 != 0) ||
-		(ft_strequ_in(T8, str2, array) == 1 && (i + 2) % 5 != 0 &&
+		(ft_strequ_in(T7, str2, initial_tets) == 1 && i % 5 != 0) ||
+		(ft_strequ_in(T8, str2, initial_tets) == 1 && (i + 2) % 5 != 0 &&
 			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T9, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T10, str2, array) == 1 && (i + 2) % 5 != 0 &&
+		(ft_strequ_in(T9, str2, initial_tets) == 1 && (i + 2) % 5 != 0) ||
+		(ft_strequ_in(T10, str2, initial_tets) == 1 && (i + 2) % 5 != 0 &&
 			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T11, str2, array) == 1 && i % 5 != 0) ||
-		(ft_strequ_in(T12, str2, array) == 1 && i % 5 != 0 &&
+		(ft_strequ_in(T11, str2, initial_tets) == 1 && i % 5 != 0) ||
+		(ft_strequ_in(T12, str2, initial_tets) == 1 && i % 5 != 0 &&
 			(i - 1) % 5 != 0) ||
-		(ft_strequ_in(T13, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T14, str2, array) == 1 && (i + 2) % 5 != 0 &&
+		(ft_strequ_in(T13, str2, initial_tets) == 1 && (i + 2) % 5 != 0) ||
+		(ft_strequ_in(T14, str2, initial_tets) == 1 && (i + 2) % 5 != 0 &&
 			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T15, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T16, str2, array) == 1 && i % 5 != 0 &&
+		(ft_strequ_in(T15, str2, initial_tets) == 1 && (i + 2) % 5 != 0) ||
+		(ft_strequ_in(T16, str2, initial_tets) == 1 && i % 5 != 0 &&
 			(i + 2) % 5 != 0) ||
-		(ft_strequ_in(T17, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T18, str2, array) == 1 && (i + 2) % 5 != 0 &&
+		(ft_strequ_in(T17, str2, initial_tets) == 1 && (i + 2) % 5 != 0) ||
+		(ft_strequ_in(T18, str2, initial_tets) == 1 && (i + 2) % 5 != 0 &&
 			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T19, str2, array) == 1 && i % 5 != 0))
+		(ft_strequ_in(T19, str2, initial_tets) == 1 && i % 5 != 0))
 		return (1);
 	return (0);
 }
 
-int			check_tetriminos(char *str, int **array)
+int			check_tetriminos(char *str, char *initial_tets)
 {
 	unsigned int i;
 	unsigned int j;
@@ -77,7 +77,7 @@ int			check_tetriminos(char *str, int **array)
 				k++;
 			j++;
 		}
-		if (is_tetrimino(&str[i], (k - i) + 1, array) == 0)
+		if (is_tetrimino(&str[i], (k - i) + 1, initial_tets) == 0)
 			return (0);
 		i = i + 21;
 	}

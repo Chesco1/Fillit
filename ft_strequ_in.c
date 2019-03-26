@@ -68,7 +68,7 @@ int	ft_strequ_in(char const *s1, char const *s2, char *initial_tets)
 		return (0);
 	if (ft_strcmp_ignore_nl(s1, s2) == 0)
 	{
-		initial_tets[i] = tet_identify(s1);
+		initial_tets[i] = tet_identify((char *)s1);
 		i++;
 		return (1);
 	}
