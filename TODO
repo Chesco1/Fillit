@@ -14,9 +14,18 @@
 	check input
 	build initial state.
 		Empty field, stock of used characters, array of id's.
-	
-
 
 2. Input preprocessing
 	check valid input
 	create array of identifiers [3, 1, 2]
+
+3. Write state expander
+	get_legal_moves
+
+4. Heuristic Search
+	design heuristic
+	write scoring function
+	impelment solver
+
+5. iterative Depth Heuristic Search
+	implement depth pruning

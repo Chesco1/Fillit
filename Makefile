@@ -12,7 +12,8 @@
 
 NAME=fillit
 LIBFT=libft.a
-SRCS=get_input.c check_tetriminos.c input_is_valid.c main.c ft_strequ_in.c
+SRCS=get_input.c check_tetriminos.c input_is_valid.c main.c ft_strequ_in.c\
+	init_state.c evaluate.c evaluate_state.c
 OBJS=$(SRCS:.c=.o)
 VPATH=/libft
 FLAGS= -Wall -Wextra -Werror

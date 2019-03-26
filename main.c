@@ -18,6 +18,8 @@ int		main(int argc, char **argv)
 	int		tet_amount;
 	char	*input;
 	char	*initial_tets;
+	t_state	*state;
+	t_list	**alst;
 
 	if (argc == 2)
 	{
@@ -33,13 +35,15 @@ int		main(int argc, char **argv)
 		close(fd);
 		if (input_is_valid(input, initial_tets) == 1)
 		{
-			free(initial_tets);
+			state = init_state(initial_tets, tet_amount);
+			*alst = ft_lstnew(state, 1);
+			(*alst)->SCORE = evaluate_state(state);
+			fillit_solve(alst);
 		}
 		else
 			ft_putendl("error"); 
 	}
 	else
 		ft_putendl("something something usage");
-	sleep(10);
 	return (0);
 }
