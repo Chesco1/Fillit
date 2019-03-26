@@ -12,11 +12,13 @@
 
 #include "fillit.h"
 
-static int	is_tetrimino2(char *str, char *str2)
-{
-	//stuk van is_tetrimino, want 26 lines
-	return (0);
-}
+// static int	is_tetrimino2(char *str, char *str2)
+// {
+// 	(void)str;
+// 	(void)str2;
+// 	//stuk van is_tetrimino, want 26 lines
+// 	return (0);
+// }
 
 static int	is_tetrimino(char *str, int len, int **array)
 {

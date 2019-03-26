@@ -28,7 +28,7 @@ static int	tet_identify2(char *str)
 		return (17);
 	else if (ft_strequ(T18, str) == 1)
 		return (18);
-	else if (ft_strequ(T19, str) == 1)
+	else
 		return (19);
 }
 

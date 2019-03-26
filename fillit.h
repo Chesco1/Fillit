@@ -49,7 +49,7 @@ typedef struct		s_state
 }					t_state;
 
 int		ft_strcmp_ignore_nl(const char *s1, const char *s2);
-int		ft_strequ_in(char const *s1, char const *s2, int **array);
+int		ft_strequ_in(char const *s1, char const *s2, char *initial_tetsß);
 int		input_is_valid(char *input, int **array);
 char	*get_input(int fd);
 
