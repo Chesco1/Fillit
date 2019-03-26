@@ -14,7 +14,6 @@
 
 int		main(int argc, char **argv)
 {
-	int		i;
 	int		fd;
 	int		tet_amount;
 	char	*input;
@@ -31,20 +30,16 @@ int		main(int argc, char **argv)
 			ft_putendl("error opening file");
 			return (0);
 		}
+		close(fd);
 		if (input_is_valid(input, initial_tets) == 1)
 		{
-			i = 0;
-			while (i < tet_amount)
-			{
-				ft_putnbr(initial_tets[i]);
-				i++;
-				ft_putchar(' ');
-			}
+			free(initial_tets);
 		}
 		else
 			ft_putendl("error"); 
 	}
 	else
 		ft_putendl("something something usage");
+	sleep(10);
 	return (0);
 }

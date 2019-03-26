@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 static int		input_is_valid4(char *input)
 {
@@ -104,9 +103,6 @@ static int		input_is_valid1(char *input)
 
 int				input_is_valid(char *input, char *array)
 {
-	char	*str;
-	int		i;
-
 	if (input_is_valid1(input) == 0)
 		return (0);
 	if (input_is_valid2(input) == 0)

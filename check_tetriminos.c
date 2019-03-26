@@ -54,7 +54,11 @@ static int	is_tetrimino(char *str, int len, char *initial_tets)
 		(ft_strequ_in(T18, str2, initial_tets) == 1 && (i + 2) % 5 != 0 &&
 			(i + 3) % 5 != 0) ||
 		(ft_strequ_in(T19, str2, initial_tets) == 1 && i % 5 != 0))
+	{
+		free(str2);
 		return (1);
+	}
+	free(str2);
 	return (0);
 }
 

@@ -100,8 +100,6 @@ void				*ft_slow_memchr(const void *s, int c, size_t n);
 int					*ft_range(int min, int max);
 int					*ft_range_step(int min, int max, int step);
 
-int					*index_n_char(char *str, int c, size_t n);
-
 char				*ft_itoa(int n);
 char				*ft_itoa_base(int value, int base);
 char				*ft_strnew(size_t size);
