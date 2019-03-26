@@ -1,0 +1,22 @@
+********************************************************************************
+                                                                                
+                                                          ::::::::              
+     TODO                                               :+:    :+:              
+                                                       +:+                      
+     By: fmiceli <fmiceli@student.codam.nl>           +#+                       
+                                                     +#+                        
+     Created: 2019/03/26 11:46:13 by fmiceli       #+#    #+#                   
+     Updated: 2019/03/26 11:46:15 by fmiceli       ########   odam.nl           
+                                                                                
+********************************************************************************
+
+1. Main
+	check input
+	build initial state.
+		Empty field, stock of used characters, array of id's.
+	
+
+
+2. Input preprocessing
+	check valid input
+	create array of identifiers [3, 1, 2]

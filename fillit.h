@@ -39,15 +39,18 @@
 # define T18 "###..#"
 # define T19 "#..##...#"
 
-int		check_tetriminos(char *str, int **array);
+typedef struct		s_state
+{
+	char			**field_rows;
+	char			*unplaced_tets;
+	char			field_width;
+	char			field_height;
+	char			used_letters;
+}					t_state;
+
 int		ft_strcmp_ignore_nl(const char *s1, const char *s2);
 int		ft_strequ_in(char const *s1, char const *s2, int **array);
-int		fillit_solve(int **tet_array, int tet_amount);
 int		input_is_valid(char *input, int **array);
 char	*get_input(int fd);
-char	*make_field(int tet_amount);
-void	expand_field(char *field, int linelen, int **array);
-void	place_tetrimino(int *tetrimino, char *index_field);
-void	remove_tetrimino(int *tetrimino, char *index_field);
 
 #endif
