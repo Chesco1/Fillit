@@ -102,7 +102,7 @@ static int		input_is_valid1(char *input)
 	return (1);
 }
 
-int				input_is_valid(char *input, int **array)
+int				input_is_valid(char *input, char *array)
 {
 	char	*str;
 	int		i;
