@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 17:59:18 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/23 17:59:36 by fmiceli       ########   odam.nl         */
+/*   Updated: 2019/03/25 23:01:37 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	remove_tetrimino(int *tetrimino, char *index_field)
 		index_field[tetrimino[i]] = '.';
 		i++;
 	}
-	tetrimino[6] = 0;
+	tetrimino[7] = -1;
 }

@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 17:43:02 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/23 17:43:15 by fmiceli       ########   odam.nl         */
+/*   Updated: 2019/03/26 02:19:32 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ char    *make_field(int tet_amount, int **tet_array, int i)
           i = 2;
 	else if (tet_amount >= 7 && tet_amount <= 9)
           i = 3;
-        else if (tet_amount == 10 || tet_amount == 11)
+        else if (tet_amount >= 10 && tet_amount <= 12)
           i = 4;
-        else if (tet_amount >= 12 && tet_amount <= 16)
+        else if (tet_amount >= 13 && tet_amount <= 16)
           i = 5;
         else if (tet_amount >= 17 && tet_amount <= 20)
           i = 6;
 	else if (tet_amount >= 21 && tet_amount <= 25)
           i = 7;
-        else
+	else if (tet_amount == 26)
           i = 8;
 	while (i > 0)
           {
