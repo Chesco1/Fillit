@@ -12,31 +12,55 @@
 
 #include "fillit.h"
 
-static int	*index_n_char(char *str, int c, size_t n)
+static int	tet_identify2(char *str)
 {
-	size_t	i;
-	size_t	j;
-	int		*array;
-
-	i = 0;
-	j = 0;
-	array = (int *)malloc(sizeof(int) * n + 1);
-	while (j < n && str[i] != '\0')
-	{
-		while (j < n && str[i] != c && str[i] != '\0')
-			i++;
-		if (j < n && str[i] != '\0')
-		{
-			array[j] = i;
-			i++;
-			j++;
-		}
-	}
-	array[j] = -1;
-	return (array);
+	if (ft_strequ(T12, str) == 1)
+		return (12);
+	else if (ft_strequ(T13, str) == 1)
+		return (13);
+	else if (ft_strequ(T14, str) == 1)
+		return (14);
+	else if (ft_strequ(T15, str) == 1)
+		return (15);
+	else if (ft_strequ(T16, str) == 1)
+		return (16);
+	else if (ft_strequ(T17, str) == 1)
+		return (17);
+	else if (ft_strequ(T18, str) == 1)
+		return (18);
+	else if (ft_strequ(T19, str) == 1)
+		return (19);
 }
 
-int	ft_strequ_in(char const *s1, char const *s2, char *array)
+static int	tet_identify(char *str)
+{
+	if (ft_strequ(T1, str) == 1)
+		return (1);
+	else if (ft_strequ(T2, str) == 1)
+		return (2);
+	else if (ft_strequ(T3, str) == 1)
+		return (3);
+	else if (ft_strequ(T4, str) == 1)
+		return (4);
+	else if (ft_strequ(T5, str) == 1)
+		return (5);
+	else if (ft_strequ(T6, str) == 1)
+		return (6);
+	else if (ft_strequ(T7, str) == 1)
+		return (7);
+	else if (ft_strequ(T8, str) == 1)
+		return (8);
+	else if (ft_strequ(T9, str) == 1)
+		return (9);
+	else if (ft_strequ(T10, str) == 1)
+		return (10);
+	else if (ft_strequ(T11, str) == 1)
+		return (11);
+	else
+		return (tet_identify2(str));
+}
+
+int	ft_strequ_in(char const *s1, char const *s2, char *initial_tets)
 {
 	static int i = 0;
 
@@ -44,9 +68,7 @@ int	ft_strequ_in(char const *s1, char const *s2, char *array)
 		return (0);
 	if (ft_strcmp_ignore_nl(s1, s2) == 0)
 	{
-		array[i] = index_n_char((char *)s1, '#', 6);
-		array[i][5] = 65 + i;
-		array[i][6] = 0;
+		initial_tets[i] = tet_identify(s1);
 		i++;
 		return (1);
 	}
