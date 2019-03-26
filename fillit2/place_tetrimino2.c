@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	place_tetrimino(int *tetrimino, char *index_field)
+void	place_tetrimino2(int *tetrimino, char *index_field)
 {
 	int	i;
 

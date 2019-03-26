@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	remove_tetrimino(int *tetrimino, char *index_field)
+void	remove_tetrimino1(int *tetrimino, char *index_field)
 {
 	int i;
 

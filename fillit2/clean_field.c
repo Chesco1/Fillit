@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   index_latest_clone.c                               :+:    :+:            */
+/*   clean_field.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/25 22:38:25 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/26 01:00:35 by ccoers        ########   odam.nl         */
+/*   Created: 2019/03/26 21:34:27 by ccoers        #+#    #+#                 */
+/*   Updated: 2019/03/26 21:34:29 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-
-int		index_latest_clone(int **tet_array, int *tetrimino, int i)
+void	clean_field(char *field)
 {
-	if (i == 0)
-        return (-1);
-    i--;
-	while (i >= 0)
-    {
-        if (ft_memcmp(tetrimino, tet_array[i], 4) == 0)
-		{
-			ft_putnbr(tetrimino[2]);
-			ft_putnbr(tet_array[i][2]);
-			ft_putendl("");
-            return (i);
-		}
-        i--;
-    }
-    return (-1);
+	int i;
+
+	i = 0;
+	while (field[i] != '\0')
+	{
+		if (field[i] != '\n')
+			field[i] = '.';
+		i++;
+	}
 }

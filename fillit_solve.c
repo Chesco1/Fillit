@@ -20,37 +20,17 @@ static int		is_legal(int *tetrimino, char *index_field)
 	return (0);
 }
 
-static int		find_next_dot(char *index_field, int i)
-{
-	i++;
-	while (index_field[i] != '.')
-	{
-		i++;
-		if (index_field[i] == '\0')
-			return (-1);
-	}
-	return (i);
-}
-
-static int		is_done(int **tet_array)
-{
-	int	i;
-
-	i = 0;
-	while (tet_array[i] != NULL)
-	{
-		if (tet_array[i][6] != 1)
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
 static int		solve(int **tet_array, char *field, int i)
 {
 	int	j;
-	int k;
+	static int k;
 
+	if (k == 1000000)
+	{
+		ft_putstr(field);
+		ft_putendl("\n");
+		k = 0;
+	}
 	if (tet_array[i] == NULL)
         return (1);
 	j = tet_array[tet_array[i][6]][7] + 1;
@@ -60,11 +40,12 @@ static int		solve(int **tet_array, char *field, int i)
 			j++;
 		if (is_legal(tet_array[i], &field[j]) == 1)
 	    {
-			place_tetrimino(tet_array[i], &field[j]);
+			place_tetrimino2(tet_array[i], &field[j]);
+			k++;
 			tet_array[i][7] = j;
 			if (solve(tet_array, field, i + 1) == 1)
 				return (1);
-			remove_tetrimino(tet_array[i], &field[j]);
+			remove_tetrimino2(tet_array[i], &field[j]);
 	    }
 	  j++;
 	}
