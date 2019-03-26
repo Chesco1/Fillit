@@ -36,7 +36,7 @@ static int	*index_n_char(char *str, int c, size_t n)
 	return (array);
 }
 
-int	ft_strequ_in(char const *s1, char const *s2, int **array)
+int	ft_strequ_in(char const *s1, char const *s2, char *array)
 {
 	static int i = 0;
 
