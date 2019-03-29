@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	char	*input;
 	char	*initial_tets;
 	t_state	*state;
-	t_list	**alst;
+	t_list	*alst;
 
 	if (argc == 2)
 	{
@@ -35,10 +35,10 @@ int		main(int argc, char **argv)
 		close(fd);
 		if (input_is_valid(input, initial_tets) == 1)
 		{
-			state = init_state(initial_tets, tet_amount);
-			*alst = ft_lstnew(state, 1);
-			(*alst)->SCORE = evaluate_state(state);
-			fillit_solve(alst);
+			state = init_state(initial_tets);
+			alst = ft_lstnew(state, 1, tet_amount);
+			alst->SCORE = evaluate_state(alst);
+			// fillit_solve(&alst);
 		}
 		else
 			ft_putendl("error"); 

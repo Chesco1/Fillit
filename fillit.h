@@ -19,7 +19,9 @@
 
 # define SIZE_TET 21
 # define MAX_TETS 26
-# define SCORE content_size
+# define STATE content
+# define SCORE value
+# define N_UNPLACED_TETS content_size
 
 # define T1 "####"
 # define T2 "#...#...#...#"
@@ -45,7 +47,6 @@ typedef struct		s_state
 {
 	char			**field_rows;
 	char			*unplaced_tets;
-	char			n_unplaced_tets;
 	char			field_width;
 	char			field_height;
 	char			used_letters;
@@ -56,6 +57,7 @@ int		ft_strequ_in(char const *s1, char const *s2, char *initial_tets);
 int		input_is_valid(char *input, char *initial_tets);
 char	*get_input(int fd);
 int		check_tetriminos(char *str, char *initial_tets);
-t_state	*init_state(char *tets, int n_tets);
+int		evaluate_state(t_list *node);
+t_state	*init_state(char *tets);
 
 #endif

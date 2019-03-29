@@ -26,8 +26,9 @@
 typedef struct		s_list
 {
 	void			*content;
-	size_t			content_size;
 	struct s_list	*next;
+	char			content_size;
+	char			value;
 }					t_list;
 
 typedef struct		s_magicmask
@@ -69,6 +70,9 @@ int					ft_isascii(int c);
 int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
+
+int					ft_sqrt_floor(int nb);
+int					ft_sqrt_ceil(int nb);
 
 int					ft_min(int x, int y);
 int					ft_max(int x, int y);
@@ -135,7 +139,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 char				**ft_strsplit(char const *s, char c);
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-t_list				*ft_lstnew(void const *content, size_t content_size);
+t_list				*ft_lstnew(void const *content, size_t content_size, char value);
 t_list				*ft_lstdequeue(t_list **alst);
 t_list				*ft_lstunlink(t_list **head_node, t_list *to_unlink);
 void				ft_lstadd(t_list **alst, t_list *new);
@@ -144,6 +148,5 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_delcontent(void *content, size_t size);
-void				*ft_lsttoarray(t_list **alst, int len);
 
 #endif

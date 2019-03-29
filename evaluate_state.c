@@ -1,37 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lsttoarray.c                                    :+:    :+:            */
+/*   evaluate_state.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/16 00:22:57 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/16 00:22:58 by fmiceli       ########   odam.nl         */
+/*   Created: 2019/03/26 20:11:02 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/03/26 20:11:03 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "fillit.h"
 
-void	*ft_lsttoarray(t_list **alst, int len)
+int	evaluate_state(t_list *node)
 {
-	t_list	*current;
-	int		i;
-	size_t	j;
-	int		*arr;
+	int 	score;
+	t_state	*state;
 
-	arr = (int *)malloc(sizeof(int) * len);
-	current = *alst;
-	i = 0;
-	while (current)
-	{
-		j = 0;
-		while (j < current->content_size)
-		{
-			arr[i + j] = ((int *)(current->content))[j];
-			j++;
-		}
-		current = current->next;
-	}
-	ft_lstdel(alst, ft_delcontent);
-	return ((void *)arr);
+	state = node->STATE;
+	score = ft_max(state->field_width, state->field_height);
+	score += (node->N_UNPLACED_TETS) * 4;
+	return (score);
 }

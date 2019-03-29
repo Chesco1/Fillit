@@ -25,7 +25,9 @@
 4. Heuristic Search
 	design heuristic
 	write scoring function
-	impelment solver
+		check number of empty tiles in field. If larger than (field_size ^ 2) - (4 * tets),
+		it's a bad state.
+	implement solver
 
 5. iterative Depth Heuristic Search
 	implement depth pruning
