@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+t_list	*ft_lstnew(void const *content, size_t content_size, char value)
 {
 	t_list	*link;
 	char	*cont_copy;
@@ -27,6 +27,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	else
 		cont_copy = NULL;
 	link->content = cont_copy;
+	link->value = value;
 	link->content_size = content_size;
 	link->next = NULL;
 	return (link);

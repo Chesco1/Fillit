@@ -13,7 +13,7 @@
 NAME=fillit
 LIBFT=libft.a
 SRCS=get_input.c check_tetriminos.c input_is_valid.c main.c ft_strequ_in.c\
-	init_state.c evaluate.c evaluate_state.c
+	init_state.c evaluate_state.c
 OBJS=$(SRCS:.c=.o)
 VPATH=/libft
 FLAGS= -Wall -Wextra -Werror
@@ -21,7 +21,7 @@ FLAGS= -Wall -Wextra -Werror
 all : $(LIBFT) $(NAME) clean
 
 $(NAME) :
-	@gcc $(SRCS) -o $(NAME) $(FLAGS) -L ./libft/ -I ./libft/ -lft
+	@gcc $(SRCS) -o $(NAME) $(FLAGS) -L ./libft/ -I ./ -I ./libft/ -lft
 
 $(LIBFT) :
 	@make -C ./libft/ re
