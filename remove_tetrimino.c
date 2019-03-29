@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   remove_tetrimino.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/03/23 17:59:18 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/03/28 14:48:04 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+void	remove_tetrimino(int *tetrimino, char *index_field)
 {
-	static int i = 0;
+	int i;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	i = 0;
+	while (tetrimino[i] != -1)
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
+		index_field[tetrimino[i]] = '.';
 		i++;
-		return (1);
 	}
-	return (0);
+	tetrimino[7] = -1;
 }

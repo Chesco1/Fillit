@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:01:36 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:37:53 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/28 14:48:41 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static int		solve(int **tet_array, char *field, int i)
 			j++;
 		if (is_legal(tet_array[i], &field[j]) == 1)
 	    {
-			place_tetrimino2(tet_array[i], &field[j]);
+			place_tetrimino(tet_array[i], &field[j]);
 			k++;
 			tet_array[i][7] = j;
 			if (solve(tet_array, field, i + 1) == 1)
 				return (1);
-			remove_tetrimino2(tet_array[i], &field[j]);
+			remove_tetrimino(tet_array[i], &field[j]);
 	    }
 	  j++;
 	}
