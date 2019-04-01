@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 12:09:41 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/22 15:37:25 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/01 18:26:27 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,16 @@ typedef struct		s_state
 	char			field_height;
 	char			used_letters;
 }					t_state;
+
+typedef struct      s_coordinates
+{
+    int				x_1;
+	int 			y_1;
+	int	    	    x_2;
+    int	    	    y_2;
+	int	    	    x_3;
+    int	    	    y_3;
+}                   t_coordinates;
 
 int		ft_strcmp_ignore_nl(const char *s1, const char *s2);
 int		ft_strequ_in(char const *s1, char const *s2, char *initial_tets);
