@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 12:09:41 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/28 14:47:32 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/25 22:58:56 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,12 @@ int		input_is_valid(char *input, int **array);
 char	*get_input(int fd);
 char	*make_field(int tet_amount, int **tet_array, int i);
 void	expand_field(char *field, int linelen, int **array);
-void	place_tetrimino(int *tetrimino, char *index_field);
-void	remove_tetrimino(int *tetrimino, char *index_field);
+void	place_tetrimino1(int *tetrimino, char *index_field);
+void	remove_tetrimino1(int *tetrimino, char *index_field);
 int     index_latest_clone(int **tet_array, int *tetrimino, int i);
+void	clean_field(char *field);
+void	convert_tets(int **tet_array);
+void	place_tetrimino2(int *tetrimino, char *index_field);
+void	remove_tetrimino2(int *tetrimino, char *index_field);
 
 #endif

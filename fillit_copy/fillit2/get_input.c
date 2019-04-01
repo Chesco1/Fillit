@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   get_input.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/03/23 17:52:52 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/03/23 17:53:07 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+char	*get_input(int fd)
 {
-	static int i = 0;
+	char	buf[(SIZE_TET * MAX_TETS) + 2];
+	char	*input;
+	int		ret;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
-	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
-		i++;
-		return (1);
-	}
-	return (0);
+	ret = read(fd, buf, (SIZE_TET * MAX_TETS) + 2);
+	buf[ret] = '\0';
+	input = ft_strnew(ft_strlen(buf) + 1);
+	ft_strcpy(input, buf);
+	return (input);
 }

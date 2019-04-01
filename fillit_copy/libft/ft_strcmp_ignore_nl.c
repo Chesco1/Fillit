@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_strcmp_ignore_nl.c                              :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/03/23 16:28:38 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/03/23 16:28:51 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+int	ft_strcmp_ignore_nl(const char *s1, const char *s2)
 {
-	static int i = 0;
+	size_t	i;
+	char	*str;
+	char	*str2;
+	size_t	j;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	str = (char *)s1;
+	str2 = (char *)s2;
+	i = 0;
+	j = 0;
+	while ((str[i] == str2[j] && str[i] != '\0') || str2[j] == '\n')
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
+		if (str2[j] == '\n')
+		{
+			j++;
+			continue ;
+		}
 		i++;
-		return (1);
+		j++;
 	}
-	return (0);
+	return (str[i] - str2[j]);
 }

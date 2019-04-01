@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_memmove.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/13 18:26:55 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/25 12:56:00 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	static int i = 0;
+	size_t			i;
+	unsigned char	*source;
+	unsigned char	*dest;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	if (src > dst)
+		ft_memcpy(dst, src, len);
+	else
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
-		i++;
-		return (1);
+		source = (unsigned char *)src;
+		dest = (unsigned char *)dst;
+		i = len;
+		while (i > 0)
+		{
+			dest[i - 1] = source[i - 1];
+			i--;
+		}
 	}
-	return (0);
+	return (dst);
 }

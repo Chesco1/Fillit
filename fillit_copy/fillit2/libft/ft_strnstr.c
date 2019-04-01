@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_strnstr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/12 15:14:52 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/23 14:33:13 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	static int i = 0;
+	size_t	i;
+	size_t	j;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	i = 0;
+	while (haystack[i] != '\0' && i < len)
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
+		j = 0;
+		while (haystack[i + j] == needle[j] && needle[j] != '\0' && i + j < len)
+			j++;
+		if (needle[j] == '\0')
+			return ((char *)&haystack[i]);
 		i++;
-		return (1);
 	}
-	return (0);
+	return (NULL);
 }

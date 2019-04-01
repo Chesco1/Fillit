@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_lsttoarray.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/03/16 00:22:57 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/03/16 00:22:58 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+void	*ft_lsttoarray(t_list **alst, int len)
 {
-	static int i = 0;
+	t_list	*current;
+	int		i;
+	size_t	j;
+	int		*arr;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	arr = (int *)malloc(sizeof(int) * len);
+	current = *alst;
+	i = 0;
+	while (current)
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
-		i++;
-		return (1);
+		j = 0;
+		while (j < current->content_size)
+		{
+			arr[i + j] = ((int *)(current->content))[j];
+			j++;
+		}
+		current = current->next;
 	}
-	return (0);
+	ft_lstdel(alst, ft_delcontent);
+	return ((void *)arr);
 }

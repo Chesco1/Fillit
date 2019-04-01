@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_strncmp.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/13 13:43:49 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/31 13:16:52 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	static int i = 0;
+	size_t	len_1;
+	size_t	len_2;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
-	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
-		i++;
-		return (1);
-	}
-	return (0);
+	len_1 = ft_strlen(s1);
+	len_2 = ft_strlen(s2);
+	n = ft_min(n, ft_min(len_1, len_2) + 1);
+	return (ft_memcmp(s1, s2, n));
 }

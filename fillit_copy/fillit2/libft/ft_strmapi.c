@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_strmapi.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/20 16:47:46 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/20 18:50:46 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	static int i = 0;
+	int		i;
+	char	*map;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	map = (char *)malloc(ft_strlen(s) + 1);
+	if (map == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
+		map[i] = f(i, s[i]);
 		i++;
-		return (1);
 	}
-	return (0);
+	map[i] = '\0';
+	return (map);
 }

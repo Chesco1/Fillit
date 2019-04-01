@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/26 00:46:00 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
 		tet_array[i] = index_n_char((char *)s1, '#', 8);
 		tet_array[i][5] = 65 + i;
 		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
+		tet_array[i][7] = 0;
 		i++;
 		return (1);
 	}

@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 12:09:41 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/28 14:47:32 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/03/28 21:54:26 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,8 @@ void	expand_field(char *field, int linelen, int **array);
 void	place_tetrimino(int *tetrimino, char *index_field);
 void	remove_tetrimino(int *tetrimino, char *index_field);
 int     index_latest_clone(int **tet_array, int *tetrimino, int i);
+int		is_legal(int **tet_array, const int i, const char *field, const int j);
+int		was_bad_move(int **tet_array, const int tet_index_at_call, char *field, const int strlen);
+int	get_max_dots(const int tet_amount);
 
 #endif

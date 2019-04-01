@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_atoi.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/11 13:48:34 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/19 17:49:42 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+int	ft_atoi(const char *str)
 {
-	static int i = 0;
+	int		result;
+	int		i;
+	int		sign;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
-	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
+	i = 0;
+	result = 0;
+	sign = 1;
+	while (ft_isspace(str[i]) == TRUE)
 		i++;
-		return (1);
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
 	}
-	return (0);
+	while (str[i] != '\0')
+	{
+		if (ft_isdigit(str[i]) == FALSE)
+			return (sign * result);
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (sign * result);
 }

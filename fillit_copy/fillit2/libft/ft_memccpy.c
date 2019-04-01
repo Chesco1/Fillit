@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_memccpy.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/13 17:57:53 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/02/02 16:45:44 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	static int i = 0;
+	unsigned char	*stop_addres;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	if (n == 0)
+		return (NULL);
+	stop_addres = (unsigned char *)ft_memchr(src, c, n);
+	if (stop_addres != NULL)
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
-		i++;
-		return (1);
+		ft_memcpy(dst, src, stop_addres - (unsigned char *)src + 1);
+		return (&dst[stop_addres - (unsigned char *)src + 1]);
 	}
-	return (0);
+	ft_memcpy(dst, src, n);
+	return (NULL);
 }

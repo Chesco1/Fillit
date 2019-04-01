@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strequ_in.c                                     :+:    :+:            */
+/*   ft_strsub.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/03/23 17:51:19 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/25 23:00:14 by ccoers        ########   odam.nl         */
+/*   Created: 2019/01/20 18:36:27 by fmiceli       #+#    #+#                 */
+/*   Updated: 2019/01/23 14:25:22 by fmiceli       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "libft.h"
 
-int	ft_strequ_in(char const *s1, char const *s2, int **tet_array)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	static int i = 0;
+	size_t	i;
+	char	*str;
+	char	*src;
 
-	if (s1 == 0 || s2 == 0)
-		return (0);
-	if (ft_strcmp_ignore_nl(s1, s2) == 0)
+	str = (char *)malloc(len + 1);
+	if (str == NULL)
+		return (NULL);
+	i = 0;
+	src = (char *)&s[start];
+	while (i < len)
 	{
-		tet_array[i] = index_n_char((char *)s1, '#', 8);
-		tet_array[i][5] = 65 + i;
-		tet_array[i][6] = index_latest_clone(tet_array, tet_array[i], i);
-		tet_array[i][7] = -1;
+		str[i] = src[i];
 		i++;
-		return (1);
 	}
-	return (0);
+	str[i] = '\0';
+	return (str);
 }
