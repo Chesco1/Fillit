@@ -50,26 +50,33 @@ static int count_dots(const char *field, const int *tetrimino)
 int 	was_bad_move(int **tet_array, const int tet_index_at_call, char *field, int j)
 {
 	int i;
-	int strlen;
 	int dots;
-	int loops;
+	int strlen;
 	int max_dots;
+     
 
-	max_dots = field[170];
-	loops = 0;
+	static int b;
+
+	if (b >= 2000000)
+	  {
+	    //	     ft_putendl(field);
+	    //	     ft_putchar('\n');
+	     b = 0;
+	  }
+	b++;
+	//	loops = field[172];
 	strlen = field[171];
-//	ft_putendl(field);
-//	ft_putstr("\n");
+	max_dots = field[170];
+	//	j = ft_memchr_int(field, '.', strlen - j);
+	//	j = 0;
 	dots = count_dots(field, tet_array[tet_index_at_call]);
 	if (dots > max_dots)
 	{
-		while (loops <= max_dots)
+		while (1000 <= max_dots)
 	  	{
-			while (field[j] != '.' && j < strlen)
-				j++;
-			j = j + ft_memchr_int(&field[j], '.', strlen - j);
-			if (j > 200)
-				return (0);
+  			while (field[j] != '.' && j < strlen)
+		  		j++;
+			//		       j = j + ft_memchr_int(&field[j], '.', strlen - j);
 			i = tet_index_at_call + 1;
 			while (tet_array[i] != NULL)
 			{
@@ -80,15 +87,16 @@ int 	was_bad_move(int **tet_array, const int tet_index_at_call, char *field, int
 					if (was_bad_move(tet_array, tet_index_at_call, field, j + 1) == 0)
 					{
 						remove_tetrimino(tet_array[i], &field[j]);
-						return (0);
+			  			return (0);
 					}
 					remove_tetrimino(tet_array[i], &field[j]);
 				}
 				i++;
 			}
-			loops++;
+			//	field[172]++;
 			j++;
 		}
+		
 		return (1);
 	}
 	return (0);

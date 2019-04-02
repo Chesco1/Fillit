@@ -17,7 +17,7 @@ int		index_latest_clone(int **tet_array, int *tetrimino, int i)
 	if (i < 1)
         return (-1);
     i--;
-	while (i > 0)
+	while (i >= 0)
     {
         if (ft_memcmp(tetrimino, tet_array[i], 4) == 0)
             return (i);

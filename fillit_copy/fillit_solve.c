@@ -58,7 +58,7 @@ static int		initial_solve(int **tet_array, char *field, int i, const int strlen)
 	int j;
 	static int b;
 
-	if (b >= 700000)
+	if (b >= 1500000)
 	{
 		ft_putendl(field);
 		ft_putchar('\n');
@@ -87,7 +87,7 @@ static int		initial_solve(int **tet_array, char *field, int i, const int strlen)
 			return (0);
 		place_tetrimino(tet_array[i], &field[j]);
 		tet_array[i][7] = j;
-		if (was_bad_move(tet_array, i, field, strlen) == 0)
+		if (was_bad_move(tet_array, i, field, 0) == 0)
 		{
 			if (initial_solve(tet_array, field, 0, strlen) == 1)
 				return (1);
@@ -119,11 +119,11 @@ static int		solve(int **tet_array, char *field, int i, int strlen)
 	{
 //		ft_putendl(field);
 //		ft_putstr("\n");
-//		while (field[j] != '.' && j < strlen)
-//			j++;
-		j = j + ft_memchr_int(&field[j], '.', strlen - j);
-		if (j > 800)
-			return (0);
+		while (field[j] != '.' && j < strlen)
+			j++;
+		//		j = j + ft_memchr_int(&field[j], '.', strlen - j);
+		//		if (j > 800)
+		//			return (0);
 		if (is_legal(tet_array, i, field, j) == 1)
 	    {
 			place_tetrimino(tet_array[i], &field[j]);
