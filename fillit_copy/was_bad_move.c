@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/28 11:54:34 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/02 04:55:48 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/02 21:46:10 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ int 	was_bad_move(int **tet_array, const int tet_index_at_call, char *field, int
 	max_dots = field[170];
 	loops = 0;
 	strlen = field[171];
+//	ft_putendl(field);
+//	ft_putstr("\n");
 	dots = count_dots(field, tet_array[tet_index_at_call]);
 	if (dots > max_dots)
 	{
@@ -65,6 +67,9 @@ int 	was_bad_move(int **tet_array, const int tet_index_at_call, char *field, int
 	  	{
 			while (field[j] != '.' && j < strlen)
 				j++;
+			j = j + ft_memchr_int(&field[j], '.', strlen - j);
+			if (j > 200)
+				return (0);
 			i = tet_index_at_call + 1;
 			while (tet_array[i] != NULL)
 			{

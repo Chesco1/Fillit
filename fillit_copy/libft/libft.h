@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 11:56:34 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/22 15:45:18 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/02 21:06:31 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void				*ft_memalloc(size_t size);
 
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
+int     			ft_memchr_int(const void *s, int c, size_t n);
 void				*ft_slow_memchr(const void *s, int c, size_t n);
 
 int					*ft_range(int min, int max);

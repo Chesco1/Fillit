@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:01:36 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/02 04:38:25 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/02 21:49:38 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static int		solve(int **tet_array, char *field, int i, int strlen)
 	int	j;
 		static int k;
 
-		if (k >= 4)
+		if (k >= 4000000)
 		{
 			ft_putstr(field);
 			ft_putendl("\n");
@@ -117,8 +117,13 @@ static int		solve(int **tet_array, char *field, int i, int strlen)
 	  j = 0;
 	while (field[j] != '\0')
 	{
-		while (field[j] != '.' && j < strlen)
-			j++;
+//		ft_putendl(field);
+//		ft_putstr("\n");
+//		while (field[j] != '.' && j < strlen)
+//			j++;
+		j = j + ft_memchr_int(&field[j], '.', strlen - j);
+		if (j > 800)
+			return (0);
 		if (is_legal(tet_array, i, field, j) == 1)
 	    {
 			place_tetrimino(tet_array[i], &field[j]);
@@ -126,11 +131,11 @@ static int		solve(int **tet_array, char *field, int i, int strlen)
 //			ft_putendl(field);
 //			ft_putstr("\n");
 			tet_array[i][7] = j;
-			if (was_bad_move(tet_array, i, field, 0) == 0)
-			{
+//			if (was_bad_move(tet_array, i, field, 0) == 0)
+//			{
 			  if (solve(tet_array, field, i + 1, strlen) == 1)
 					return (1);
-			}
+//			}
 			remove_tetrimino(tet_array[i], &field[j]);
 //			if (k >= 10)
 //			{
