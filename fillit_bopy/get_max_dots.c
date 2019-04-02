@@ -23,4 +23,6 @@ int	get_max_dots(const int tet_amount)
     return (16);
     if (tet_amount == 26)
     return (17);
+	else
+		return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 17:44:28 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/23 17:45:10 by fmiceli       ########   odam.nl         */
+/*   Updated: 2019/04/02 01:47:38 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void		expand_field(char *field, int linelen, int **array)
 	field[i] = '\0';
 	if (field[170] != -1)
 	  field[170] += linelen * 2 - 1;
+	field[171] = ft_strlen(field);
 	adjust_tets_to_field(array);
 }

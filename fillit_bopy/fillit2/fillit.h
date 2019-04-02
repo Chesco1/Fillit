@@ -54,5 +54,6 @@ void	clean_field(char *field);
 void	convert_tets(int **tet_array);
 void	place_tetrimino2(int *tetrimino, char *index_field);
 void	remove_tetrimino2(int *tetrimino, char *index_field);
+void	clean_field(char *field);
 
 #endif
