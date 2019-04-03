@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:01:36 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/02 21:49:38 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/03 13:54:10 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,14 +101,14 @@ static int		initial_solve(int **tet_array, char *field, int i, const int strlen)
 static int		solve(int **tet_array, char *field, int i, int strlen)
 {
 	int	j;
-		static int k;
+//		static int k;
 
-		if (k >= 0)
-		{
-			ft_putstr(field);
-			ft_putendl("\n");
-			k = 0;
-	}
+//		if (k >= 0)
+//		{
+//			ft_putstr(field);
+//			ft_putendl("\n");
+//			k = 0;
+//	}
 	if (tet_array[i] == NULL)
         return (1);
     if (tet_array[i][6] != -1)
@@ -122,7 +122,7 @@ static int		solve(int **tet_array, char *field, int i, int strlen)
 		if (is_legal(tet_array, i, field, j) == 1)
 		  {
 			place_tetrimino(tet_array[i], &field[j]);
-			k++;
+//			k++;
 			tet_array[i][7] = j;
 			if (was_bad_move2(tet_array, i, field, 0) == 0)
 			{
