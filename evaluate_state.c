@@ -12,13 +12,11 @@
 
 #include "fillit.h"
 
-int	evaluate_state(t_list *node)
+int	evaluate_state(t_state *state)
 {
 	int 	score;
-	t_state	*state;
 
-	state = node->STATE;
 	score = ft_max(state->field_width, state->field_height);
-	score += (node->N_UNPLACED_TETS) * 4;
+	score += (state->n_unplaced_tets);
 	return (score);
 }

@@ -33,30 +33,44 @@ static t_list	*ft_lstorder(t_list **alst, t_list **new, int (*f)(int, int))
 	{
 		while (cur_old->next && f(cur_old->next->SCORE, cur_new->SCORE) >= 0)
 			cur_old = cur_old->next;
-		cur_old = ft_lstinsert(cur_old, cur_new);
+		ft_lstinsert(cur_old, cur_new);
+		cur_old = cur_new;
 		cur_new = ft_lstdequeue(new);
 	}
 	return (*alst);
 }
 
-static t_list	*get_tet_moves()
+static t_list	*get_tet_moves(t_state *state, int tet_index)
+{
+	t_list	*moves;
+	int		tet_id;
+
+	tet_id = (state->unpalced_tets)[tet_index];
+	//TODO: Loop over field, get valid moves.
+	return (moves);
+}
 
 t_list 			*get_valid_moves(t_list **alst)
 {
 	t_list	*current_node;
 	t_list	*new_nodes;
 	t_state	current_state;
+	int		tet_stock;
 	int		tet_index;
 
 	current_node = ft_lstdequeue(alst);
 	current_state = current_node->STATE;
 	new_nodes = NULL;
 	tet_index = 0;
+	tet_stock = 0;
 	while (tet_index < current_node->N_UNPLACED_TETS)
 	{
-		new_nodes = order_nodes(&new_nodes,\
-						get_tet_moves(current_state, tet_index), ft_substract);
 		tet_index++;
+		if (tet_stock & (1 << (current_state->unpalced_tets)[tet_index - 1]))
+			continue ;
+		tet_stock |= 1 << (current_state->unpalced_tets)[tet_index - 1];
+		new_nodes = order_nodes(&new_nodes,\
+						get_tet_moves(current_state, tet_index - 1), ft_substract);
 	}
 	*alst = order_nodes(alst, new_nodes, ft_substract);
 	ft_lstnodedel(current_node);

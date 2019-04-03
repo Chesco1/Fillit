@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-t_state	*init_state(char *tets)
+t_state	*init_state(char *tets, int n_tets)
 {
 	t_state	*state;
 
@@ -21,6 +21,7 @@ t_state	*init_state(char *tets)
 		return (NULL);
 	state->field_rows = NULL;
 	state->unplaced_tets = tets;
+	state->n_unplaced_tets = n_tets;
 	state->field_width = 0;
 	state->field_height = 0;
 	state->used_letters = 0x0;

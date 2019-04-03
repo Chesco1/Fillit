@@ -139,7 +139,7 @@ void				*ft_memccpy(void *dst, const void *src, int c, size_t n);
 char				**ft_strsplit(char const *s, char c);
 
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-t_list				*ft_lstnew(void const *content, size_t content_size, char value);
+t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstdequeue(t_list **alst);
 t_list				*ft_lstunlink(t_list **head_node, t_list *to_unlink);
 void				ft_lstadd(t_list **alst, t_list *new);

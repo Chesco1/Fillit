@@ -21,6 +21,7 @@
 
 3. Write state expander
 	get_legal_moves
+	fix list order
 
 4. Heuristic Search
 	design heuristic
@@ -31,3 +32,9 @@
 
 5. iterative Depth Heuristic Search
 	implement depth pruning
+
+
+update libft
+
+Readability
+	get_valid_moves
