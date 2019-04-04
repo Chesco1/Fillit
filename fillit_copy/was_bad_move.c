@@ -63,64 +63,62 @@ static int count_dots1(const char *field, const int j)
         return (dots);
 }
 
-int     was_bad_move2(int **tet_array, const int tet_index_at_call, char *field, int loops)
+int     was_bad_move2(int **tet_array, const int tet_index_at_call, char *field, int j)
 {
-	int i;
-	int j;
-	int dots;
-	int strlen;
-	int max_dots;
-	static int b;
-
-	ft_putendl(field);
-	ft_putchar('\n');
-	if (b >= 502)
-		exit(1);
-	b++;
-	dots = count_dots2(field, tet_array[tet_index_at_call]);
-//	if (b >= 2000000)
-//	{
-//		ft_putendl(field);                                            
-//		ft_putchar('\n');
-//		ft_putnbr(dots);
-//		b = 0;
-//	}
-//	b++;
-        //      loops = field[172];                                                
-        strlen = field[171];
-        max_dots = field[170];
-        //      j = ft_memchr_int(field, '.', strlen - j);                         
-        j = 0;                                                             
-        if (dots > max_dots)
-        {
-             while (loops <= max_dots)
-			   {
-				loops++;
-                 	while (field[j] != '.' && j < strlen)
-                                j++;
-                        //                     j = j + ft_memchr_int(&field[j], '.', strlen - j);
-					//   i = tet_index_at_call + 1;
-						i = 0;
-                        while (tet_array[i] != NULL)
-                        {
-                                if (is_legal2(tet_array, i, field, j) == 1)
-                                {
-                                        place_tetrimino(tet_array[i], &field[j]);
-                                        tet_array[i][7] = j;
-                                        if (was_bad_move2(tet_array, tet_index_at_call, field, loops) == 0)
-                                        {
-                                                remove_tetrimino(tet_array[i], &field[j]);
-                                                return (0);
-                                        }
-                                        remove_tetrimino(tet_array[i], &field[j]);
-                                }
-                                i++;
-							}                                      
-				 	j++;
-				 }
-                return (1);
-        }
-        return (0);
+  int i;
+  int loops;
+  int dots;
+  int strlen;
+  int max_dots;
+  // static int b;
+  
+  //ft_putendl(field);
+  //ft_putchar('\n');
+  //if (b >= 80)
+  //exit(1);
+  // b++;
+  dots = count_dots2(field, tet_array[tet_index_at_call]);
+  //if (b >= 700000)
+  // {
+  //   ft_putendl(field);                                            
+  //   ft_putchar('\n');
+      //		ft_putnbr(dots);
+  //   b = 0;
+  //  }
+  //	b++;
+  loops = 0;                                                
+  strlen = field[171];
+  max_dots = field[170];
+  //      j = ft_memchr_int(field, '.', strlen - j);                         
+  //j = 0;                                                             
+  if (dots > max_dots)
+    {
+      while (loops <= max_dots)
+	{
+	  while (field[j] != '.' && j < strlen)
+	    j++;
+	  i = tet_index_at_call + 1;
+	  while (tet_array[i] != NULL)
+	    {
+	      if (is_legal2(tet_array, i, field, j) == 1)
+		{
+		  place_tetrimino(tet_array[i], &field[j]);
+		  tet_array[i][7] = j;
+		  if (was_bad_move2(tet_array, tet_index_at_call, field, 0) == 0)
+		    {
+		      remove_tetrimino(tet_array[i], &field[j]);
+		      return (0);
+		    }
+		  remove_tetrimino(tet_array[i], &field[j]);
+		}
+	      i++;
+	    }
+	  loops++;
+	  j++;
+	}
+      return (1);
+    }
+  return (0);
 }
 
 int 	was_bad_move1(char *field, int j)
