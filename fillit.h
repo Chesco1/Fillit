@@ -19,6 +19,7 @@
 
 # define SIZE_TET 21
 # define MAX_TETS 26
+# define LINE_LEN content_size
 # define STATE content
 # define SCORE value
 
@@ -44,7 +45,7 @@
 
 typedef struct		s_state
 {
-	char			**field_rows;
+	s_list			*field_rows;
 	char			*unplaced_tets;
 	char			n_unplaced_tets;
 	char			field_width;
@@ -52,15 +53,18 @@ typedef struct		s_state
 	char			used_letters;
 }					t_state;
 
-typedef	struct		t_coordinates
+typedef	struct		s_coordinates
 {
-	int				x1;
-	int				y1;
-	int				x2;
-	int				y2;
-	int				x3;
-	int				y3;
+	s_pos			*pos1;
+	s_pos			*pos2;
+	s_pos			*pos3;
 }					t_coordinates;
+
+typedef struct		s_pos
+{
+	int				x;
+	int				y;
+}					t_pos;
 
 int		ft_strcmp_ignore_nl(const char *s1, const char *s2);
 int		ft_strequ_in(char const *s1, char const *s2, char *initial_tets);
@@ -69,5 +73,7 @@ char	*get_input(int fd);
 int		check_tetriminos(char *str, char *initial_tets);
 int		evaluate_state(t_state *state);
 t_state	*init_state(char *tets, int n_tets);
+int		get_move_x(\
+			t_state *old_state, t_list *current_line, int id);
 
 #endif

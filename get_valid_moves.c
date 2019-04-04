@@ -43,10 +43,22 @@ static t_list	*ft_lstorder(t_list **alst, t_list **new, int (*f)(int, int))
 static t_list	*get_tet_moves(t_state *state, int tet_index)
 {
 	t_list	*moves;
+	t_list	*current_line;
+	t_pos	*move;
 	int		tet_id;
+	int		y;
 
-	tet_id = (state->unpalced_tets)[tet_index];
-	//TODO: Loop over field, get valid moves.
+	tet_id = state->unpalced_tets[tet_index];
+	move = (t_pos*)malloc(sizeof(t_pos));
+	move.y = 0;
+	current_line = state->field;
+	while (move.y <= state->field_height)
+	{
+		move.x = get_move(state, current_line, id);
+		ft_lstorder(moves, ft_place_tet(state, current_line, tet_index, move));
+		current_line = current_line->next;
+		move.y++;
+	}
 	return (moves);
 }
 
@@ -66,9 +78,9 @@ t_list 			*get_valid_moves(t_list **alst)
 	while (tet_index < current_node->N_UNPLACED_TETS)
 	{
 		tet_index++;
-		if (tet_stock & (1 << (current_state->unpalced_tets)[tet_index - 1]))
+		if (tet_stock & (1 << current_state->unpalced_tets[tet_index - 1]))
 			continue ;
-		tet_stock |= 1 << (current_state->unpalced_tets)[tet_index - 1];
+		tet_stock |= 1 << current_state->unpalced_tets[tet_index - 1];
 		new_nodes = order_nodes(&new_nodes,\
 						get_tet_moves(current_state, tet_index - 1), ft_substract);
 	}
