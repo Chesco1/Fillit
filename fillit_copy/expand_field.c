@@ -39,24 +39,31 @@ static void	adjust_tets_to_field(int **array)
 	}
 }
 
-void		expand_field(char *field, int linelen, int **array)
+void		expand_field(short *field, int linelen, int **array)
 {
 	int	i;
 	int	j;
 
 	linelen++;
-	j = 1;
 	i = linelen;
+	//	ft_putnbr(linelen);
+	//ft_putendl("");
+	//ft_putnbr(i);
+	//ft_putendl("\n");
+	j = 1;
 	ft_memset(field, '.', (linelen + 1) * linelen);
 	while (j < linelen)
 	{
-		field[i] = '\n';
-		i = i + (linelen + 1);
-		j++;
+	  field[i] = '\n';
+	  i = i + (linelen + 1);
+	  j++;
 	}
+      	ft_putnbr(i);
+	ft_putchar('\n');
 	field[i] = '\0';
-	if (field[170] != -1)
+	ft_putendl((char *)field);
+      	if (field[170] != -1)
 	  field[170] += linelen * 2 - 1;
-	field[171] = ft_strlen(field);
+	field[171] = ft_strlen((char *)field);
 	adjust_tets_to_field(array);
 }

@@ -25,7 +25,7 @@ void	remove_tetrimino(int *tetrimino, char *index_field)
 }
 */
 
-void    remove_tetrimino(int *tetrimino, char *index_field)
+void    remove_tetrimino(int *tetrimino, short *index_field)
 {
   index_field[tetrimino[0]] = '.';
   index_field[tetrimino[1]] = '.';

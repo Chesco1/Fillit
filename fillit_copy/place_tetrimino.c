@@ -25,7 +25,7 @@ void	place_tetrimino(int *tetrimino, char *index_field)
 
 */
 
-void    place_tetrimino(int *tetrimino, char *index_field)
+void    place_tetrimino(int *tetrimino, short *index_field)
 {
   index_field[tetrimino[0]] = tetrimino[5];
   index_field[tetrimino[1]] = tetrimino[5];

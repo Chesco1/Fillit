@@ -12,11 +12,12 @@
 
 #include "fillit.h"
 
-char    *make_field(int tet_amount, int **tet_array, int i)
+short    *make_field(int tet_amount, int **tet_array, int i)
 {
-        char    *field;
+        short    *field;
 
-        field = ft_memdup("...\n...\n...\0", 180);
+        field = (short *)ft_memdup("...\n...\n...\0", 180);
+	ft_putendl(field);
         if (tet_amount >= 2 && tet_amount <= 4)
           i = 1;
         else if (tet_amount == 5 || tet_amount == 6)
@@ -37,7 +38,10 @@ char    *make_field(int tet_amount, int **tet_array, int i)
 	while (i > 0)
           {
 	    expand_field(field, ft_linelen(field), tet_array);
+	    //ft_putendl(field);
             i--;
+	    //ft_putnbr(ft_linelen((char *)field));
+	    //ft_putendl("\n");
           }
 	field[170] = get_max_dots(tet_amount);
         return (field);

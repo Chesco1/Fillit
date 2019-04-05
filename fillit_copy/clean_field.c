@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	clean_field(char *field)
+void	clean_field(short *field)
 {
 	int i;
 
