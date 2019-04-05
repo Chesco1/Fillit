@@ -47,10 +47,10 @@ typedef struct		s_state
 {
 	s_list			*field_rows;
 	char			*unplaced_tets;
+	int				used_letters;
 	char			n_unplaced_tets;
 	char			field_width;
 	char			field_height;
-	char			used_letters;
 }					t_state;
 
 typedef	struct		s_coordinates
@@ -73,7 +73,9 @@ char	*get_input(int fd);
 int		check_tetriminos(char *str, char *initial_tets);
 int		evaluate_state(t_state *state);
 t_state	*init_state(char *tets, int n_tets);
-int		get_move_x(\
+t_state	*make_new_state(\
+			t_state *state, t_list *current_line, int tet_index, t_pos *move);
+int		get_move(\
 			t_state *old_state, t_list *current_line, int id);
 
 #endif

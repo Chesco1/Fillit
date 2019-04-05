@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	get_move_x(\
+int	get_move(\
 	t_state *old_state, t_list *current_line, int id)
 {
 	t_coordinates	*coords;

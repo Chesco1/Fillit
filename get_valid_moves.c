@@ -55,7 +55,7 @@ static t_list	*get_tet_moves(t_state *state, int tet_index)
 	while (move.y <= state->field_height)
 	{
 		move.x = get_move(state, current_line, id);
-		ft_lstorder(moves, place_tet(state, current_line, tet_index, move));
+		ft_lstorder(moves, make_new_state(state, current_line, tet_index, move));
 		current_line = current_line->next;
 		move.y++;
 	}

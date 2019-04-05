@@ -17,12 +17,13 @@
 	READY
 
 3. Write state expander
+	find_coordinates
 	get_legal_moves
 	fix list order
 	place_tet
 		field_rows + added tet
-		unplaced_etes - tet at index
-		n_unplaced_tets--
+		unplaced_etes - tet at index 			DONE
+		n_unplaced_tets-- 						DONE
 		max(Field Width, widest new row)
 		max(Field Height, highest y offset)
 		used_letters |= indexed 0				DONE
@@ -42,3 +43,5 @@ update libft
 
 Readability
 	get_valid_moves
+
+struct byte allocation optimization celebration penetration emasculation amalgamation.
