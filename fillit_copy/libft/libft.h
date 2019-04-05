@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 11:56:34 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/02 21:06:31 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/05 13:36:29 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int					ft_tolower(int c);
 
 int					ft_min(int x, int y);
 int					ft_max(int x, int y);
+int					ft_strlen_short(short *str);
+int 	    	    ft_linelen_short(short *str);
 
 size_t				ft_strlen(const char *str);
 size_t				ft_linelen(const char *str);

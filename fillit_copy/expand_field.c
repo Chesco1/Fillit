@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 17:44:28 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/02 01:47:38 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/05 15:29:39 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,13 @@ static void	adjust_tets_to_field(int **array)
 	}
 }
 
-void		expand_field(short *field, int linelen, int **array)
+void		expand_field(unsigned char *field, int linelen, int **array)
 {
 	int	i;
 	int	j;
 
 	linelen++;
 	i = linelen;
-	//	ft_putnbr(linelen);
-	//ft_putendl("");
-	//ft_putnbr(i);
-	//ft_putendl("\n");
 	j = 1;
 	ft_memset(field, '.', (linelen + 1) * linelen);
 	while (j < linelen)
@@ -58,12 +54,9 @@ void		expand_field(short *field, int linelen, int **array)
 	  i = i + (linelen + 1);
 	  j++;
 	}
-      	ft_putnbr(i);
-	ft_putchar('\n');
 	field[i] = '\0';
-	ft_putendl((char *)field);
-      	if (field[170] != -1)
-	  field[170] += linelen * 2 - 1;
+    if (field[170] != 255)
+		field[170] += linelen * 2 - 1;
 	field[171] = ft_strlen((char *)field);
 	adjust_tets_to_field(array);
 }

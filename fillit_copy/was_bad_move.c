@@ -6,13 +6,13 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/28 11:54:34 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/03 16:48:16 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/05 16:42:13 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int             is_legal2(int **tet_array, const int i, const short *field, const int j)
+static int             is_legal2(int **tet_array, const int i, const unsigned char *field, const int j)
 {
     int *tetrimino;
 
@@ -31,7 +31,7 @@ static int             is_legal2(int **tet_array, const int i, const short *fiel
 }
 
 
-static int count_dots2(const short *field, const int *tetrimino)
+static int count_dots2(const unsigned char *field, const int *tetrimino)
 {
 	int i;
 	int dots;
@@ -47,7 +47,7 @@ static int count_dots2(const short *field, const int *tetrimino)
 	return (dots);
 }
 
-static int count_dots1(const short *field, const int j)
+static int count_dots1(const unsigned char *field, const int j)
 {
         int i;
         int dots;
@@ -63,7 +63,7 @@ static int count_dots1(const short *field, const int j)
         return (dots);
 }
 
-int     was_bad_move2(int **tet_array, const int tet_index_at_call, short *field, int j)
+int     was_bad_move2(int **tet_array, const int tet_index_at_call, unsigned char *field, int j)
 {
   int i;
   int loops;
@@ -99,17 +99,13 @@ int     was_bad_move2(int **tet_array, const int tet_index_at_call, short *field
 	{
 	  while (field[j] != '.' && j < strlen)
 	    j++;
-      	  i = tet_index_at_call + 1;
-	  while (tet_array[i] != NULL)
+     i = tet_index_at_call + 1;
+	 while (tet_array[i] != NULL)
 	    {
-	      //ft_putnbr(j);
-	      ft_putnbr(strlen);
-	      ft_putendl("\n");
 	      if (is_legal2(tet_array, i, field, j) == 1)
 		{
 		  place_tetrimino(tet_array[i], &field[j]);
 	       	  tet_array[i][7] = j;
-		  ft_putendl("hoi");
 		  if (was_bad_move2(tet_array, tet_index_at_call, field, 0) == 0)
 		    {
 		      remove_tetrimino(tet_array[i], &field[j]);
@@ -127,7 +123,7 @@ int     was_bad_move2(int **tet_array, const int tet_index_at_call, short *field
   return (0);
 }
 
-int 	was_bad_move1(short *field, int j)
+int 	was_bad_move1(unsigned char *field, int j)
 {
 	int dots;
 	int max_dots;
@@ -142,6 +138,8 @@ int 	was_bad_move1(short *field, int j)
 	//b++;
 	max_dots = field[170];
 	dots = count_dots1(field, j);
+	ft_putnbr(dots);
+		ft_putchar('\n');
 	if (dots > max_dots)
 		return (1);
 	return (0);
