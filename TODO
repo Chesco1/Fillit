@@ -11,17 +11,21 @@
 ********************************************************************************
 
 1. Main
-	check input
-	build initial state.
-		Empty field, stock of used characters, array of id's.
+	READY
 
 2. Input preprocessing
-	check valid input
-	create array of identifiers [3, 1, 2]
+	READY
 
 3. Write state expander
 	get_legal_moves
 	fix list order
+	place_tet
+		field_rows + added tet
+		unplaced_etes - tet at index
+		n_unplaced_tets--
+		max(Field Width, widest new row)
+		max(Field Height, highest y offset)
+		used_letters |= indexed 0				DONE
 
 4. Heuristic Search
 	design heuristic
