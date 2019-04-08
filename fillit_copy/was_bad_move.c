@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/28 11:54:34 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/05 16:42:13 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/08 20:31:19 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int count_dots2(const unsigned char *field, const int *tetrimino)
 	return (dots);
 }
 
-static int count_dots1(const unsigned char *field, const int j)
+int count_dots1(const unsigned char *field, const int j)
 {
         int i;
         int dots;
@@ -79,14 +79,6 @@ int     was_bad_move2(int **tet_array, const int tet_index_at_call, unsigned cha
   //exit(1);
   // b++;
   dots = count_dots2(field, tet_array[tet_index_at_call]);
-  //if (b >= 700000)
-  // {
-  //   ft_putendl(field);                                            
-  //   ft_putchar('\n');
-      //		ft_putnbr(dots);
-  //   b = 0;
-  //  }
-  //	b++;
   loops = 0;
   k = 0;
   strlen = field[171];
@@ -127,19 +119,17 @@ int 	was_bad_move1(unsigned char *field, int j)
 {
 	int dots;
 	int max_dots;
-	//    	static int b;
-	//
-	//	if (b >= 2000000)
-	//  {
-	    //	     ft_putendl(field);
-	    //	     ft_putchar('\n');
-	//     b = 0;
-	//	  }
-	//b++;
+	    	static int b;
+	
+		if (b >= 2000000)
+	  {
+		  ft_putendl((char *)field);
+	    	     ft_putchar('\n');
+	     b = 0;
+		  }
+	b++;
 	max_dots = field[170];
 	dots = count_dots1(field, j);
-	ft_putnbr(dots);
-		ft_putchar('\n');
 	if (dots > max_dots)
 		return (1);
 	return (0);

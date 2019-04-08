@@ -1,7 +1,7 @@
 
 #include "fillit.h"
 
-int	get_max_dots(const int tet_amount)
+unsigned char	get_max_dots(const int tet_amount)
 {
   if (tet_amount == 12 || tet_amount == 20 || tet_amount == 6 || tet_amount == 2)
     return (1);
