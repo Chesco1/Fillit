@@ -119,15 +119,7 @@ int 	was_bad_move1(unsigned char *field, int j)
 {
 	int dots;
 	int max_dots;
-	    	static int b;
-	
-		if (b >= 2000000)
-	  {
-		  ft_putendl((char *)field);
-	    	     ft_putchar('\n');
-	     b = 0;
-		  }
-	b++;
+
 	max_dots = field[170];
 	dots = count_dots1(field, j);
 	if (dots > max_dots)

@@ -17,8 +17,6 @@ int		is_legal(int **tet_array, const int i, const unsigned char *field, const in
 	int *tetrimino;
 
 	tetrimino = tet_array[i];
-	if (tetrimino[7] != -1)
-        return(0);
     if (tetrimino[6] != -1)
     {
 		if (j <= tet_array[tetrimino[6]][7] || (tet_array[tetrimino[6]][7] == -1))
@@ -75,7 +73,7 @@ static int		initial_solve(int **tet_array, unsigned char *field, int i, const in
 	int j;
 	static int b;
 
-	if (b >= 200000)
+	if (b >= 2000000)
 	{
 	  ft_putendl((char *)field);
 		ft_putchar('\n');
