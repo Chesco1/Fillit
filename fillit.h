@@ -17,6 +17,7 @@
 # include "./libft/libft.h"
 # include <fcntl.h>
 
+# define N_UNIQUE_TETS 19
 # define SIZE_TET 21
 # define MAX_TETS 26
 # define LINE_LEN content_size
@@ -55,9 +56,9 @@ typedef struct		s_state
 
 typedef	struct		s_coordinates
 {
-	s_pos			*pos1;
-	s_pos			*pos2;
-	s_pos			*pos3;
+	s_pos			pos1;
+	s_pos			pos2;
+	s_pos			pos3;
 }					t_coordinates;
 
 typedef struct		s_pos
