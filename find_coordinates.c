@@ -24,11 +24,11 @@ void					set_y_coordinates(char *str, t_coordinates *result)
 		if (str[i] == '#')
 		{
 			if (count == 0)
-				result->y1 = i / 4;
+				result.pos1.y = i / 4;
 			else if (count == 1)
-				result->y2 = i / 4;
+				result.pos2.y = i / 4;
 			else (count == 2)
-				result->y3 = i / 4;
+				result.pos3.y = i / 4;
 			count++;
 		}
 		i++;
@@ -39,9 +39,9 @@ void					set_coordinates7(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T19ß, str) == 1)
 	{
-		result->x1 = -1;
-		result->x2 = 0;
-		result->x3 = 0;
+		result.pos1.x = -1;
+		result.pos2.x = 0;
+		result.pos3.x = 0;
 	}
 }
 
@@ -49,21 +49,21 @@ void					set_coordinates6(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T16, str) == 1)
 	{
-		result->x1 = -1;
-		result->x2 = 0;
-		result->x3 = 1;
+		result.pos1.x = -1;
+		result.pos2.x = 0;
+		result.pos3.x = 1;
 	}
 	else if (ft_strequ(T17, str) == 1)
 	{
-		result->x1 = 0;
-		result->x2 = 1;
-		result->x3 = 0;
+		result.pos1.x = 0;
+		result.pos2.x = 1;
+		result.pos3.x = 0;
 	}
 	else if (ft_strequ(T18, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 2;
-		result->x3 = 1;
+		result.pos1.x = 1;
+		result.pos2.x = 2;
+		result.pos3.x = 1;
 	}
 	else
 		set_coordinates7(char *str, t_coordinates *result);
@@ -73,21 +73,21 @@ void					set_coordinates5(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T13, str) == 1)
 	{
-		result->x1 = 0;
-		result->x2 = 0;
-		result->x3 = 1;
+		result.pos1.x = 0;
+		result.pos2.x = 0;
+		result.pos3.x = 1;
 	}
 	else if (ft_strequ(T14, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 2;
-		result->x3 = 0;
+		result.pos1.x = 1;
+		result.pos2.x = 2;
+		result.pos3.x = 0;
 	}
 	else if (ft_strequ(T15, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 1;
-		result->x3 = 1;
+		result.pos1.x = 1;
+		result.pos2.x = 1;
+		result.pos3.x = 1;
 	}
 	else
 		set_coordinates6(char *str, t_coordinates *result);
@@ -97,21 +97,21 @@ void					set_coordinates4(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T10, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 2;
-		result->x3 = 2;
+		result.pos1.x = 1;
+		result.pos2.x = 2;
+		result.pos3.x = 2;
 	}
 	else if (ft_strequ(T11, str) == 1)
 	{
-		result->x1 = 0;
-		result->x2 = -1;
-		result->x3 = 0;
+		result.pos1.x = 0;
+		result.pos2.x = -1;
+		result.pos3.x = 0;
 	}
 	else if (ft_strequ(T12, str) == 1)
 	{
-		result->x1 = -2;
-		result->x2 = -1;
-		result->x3 = 0;
+		result.pos1.x = -2;
+		result.pos2.x = -1;
+		result.pos3.x = 0;
 	}
 	else
 		set_coordinates5(char *str, t_coordinates *result);
@@ -121,21 +121,21 @@ void					set_coordinates3(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T7, str) == 1)
 	{
-		result->x1 = -1;
-		result->x2 = 0;
-		result->x3 = -1;
+		result.pos1.x = -1;
+		result.pos2.x = 0;
+		result.pos3.x = -1;
 	}
 	else if (ft_strequ(T8, str) == 1)
 	{
-		result->x1 = 0;
-		result->x2 = 1;
-		result->x3 = 2;
+		result.pos1.x = 0;
+		result.pos2.x = 1;
+		result.pos3.x = 2;
 	}
 	else if (ft_strequ(T9, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 0;
-		result->x3 = 0;
+		result.pos1.x = 1;
+		result.pos2.x = 0;
+		result.pos3.x = 0;
 	}
 	else
 		set_coordinates4(char *str, t_coordinates *result);
@@ -145,21 +145,21 @@ void					set_coordinates2(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T4, str) == 1)
 	{
-		result->x1 = 0;
-		result->x2 = 1;
-		result->x3 = 1;
+		result.pos1.x = 0;
+		result.pos2.x = 1;
+		result.pos3.x = 1;
 	}
 	else if (ft_strequ(T5, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 1;
-		result->x3 = 2;
+		result.pos1.x = 1;
+		result.pos2.x = 1;
+		result.pos3.x = 2;
 	}
 	else if (ft_strequ(T6, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = -1;
-		result->x3 = 0;
+		result.pos1.x = 1;
+		result.pos2.x = -1;
+		result.pos3.x = 0;
 	}
 	else
 		set_coordinates3(char *str, t_coordinates *result);
@@ -169,28 +169,28 @@ void					set_coordinates(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T1, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 2;
-		result->x3 = 3;
+		result.pos1.x = 1;
+		result.pos2.x = 2;
+		result.pos3.x = 3;
 	}
 	else if (ft_strequ(T2, str) == 1)
 	{
-		result->x1 = 0;
-		result->x2 = 0;
-		result->x3 = 0;
+		result.pos1.x = 0;
+		result.pos2.x = 0;
+		result.pos3.x = 0;
 	}
 	else if (ft_strequ(T3, str) == 1)
 	{
-		result->x1 = 1;
-		result->x2 = 0;
-		result->x3 = 1;
+		result.pos1.x = 1;
+		result.pos2.x = 0;
+		result.pos3.x = 1;
 	}
 	else
 		set_coordinates2(char *str, t_coordinates *result);
 	set_y_coordinates(str, result);
 }
 
-static t_coordinates	*find_other_coordinates(int id, t_coordinates *result)
+static t_coordinates	*generate_coordinates2(int id, t_coordinates *result)
 {
 	if (id == 10)
 		set_coordinates(T10, result);
@@ -215,7 +215,7 @@ static t_coordinates	*find_other_coordinates(int id, t_coordinates *result)
 	return (result);
 }
 
-t_coordinates			*find_coordinates(int id)
+t_coordinates			*generate_coordinates(int id)
 {
 	t_coordinates	*result;
 
@@ -239,11 +239,24 @@ t_coordinates			*find_coordinates(int id)
 	else if (id == 9)
 		set_coordinates(T9, result);
 	else
-		result = find_other_coordinates(id, result);
+		result = generate_coordinates2(id, result);
 	return (result);
 }
 
+t_coordinates			*find_coordinates(int id)
+{
+	static t_coordinates	**coordinate_table;
 
+	if (coordinate_table == NULL)
+		coordinate_table = (t_coordinates**)ft_memalloc(\
+			sizeof(t_coordinates*) * N_UNIQUE_TETS);
+	if (coordinate_table[id - 1] == NULL)
+	{
+		coordinate_table[id - 1] = (t_coordinates*)malloc(sizeof(t_coordinates));
+		coordinate_table[id - 1] = generate_coordinates(id);
+	}
+	return (coordinate_table[id - 1]);
+}
 
 int		main(void)
 {
