@@ -35,33 +35,158 @@ void					set_y_coordinates(char *str, t_coordinates *result)
 	}
 }
 
+void					set_coordinates7(char *str, t_coordinates *result)
+{
+	if (ft_strequ(T19ß, str) == 1)
+	{
+		result->x1 = -1;
+		result->x2 = 0;
+		result->x3 = 0;
+	}
+}
+
+void					set_coordinates6(char *str, t_coordinates *result)
+{
+	if (ft_strequ(T16, str) == 1)
+	{
+		result->x1 = -1;
+		result->x2 = 0;
+		result->x3 = 1;
+	}
+	else if (ft_strequ(T17, str) == 1)
+	{
+		result->x1 = 0;
+		result->x2 = 1;
+		result->x3 = 0;
+	}
+	else if (ft_strequ(T18, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = 2;
+		result->x3 = 1;
+	}
+	else
+		set_coordinates7(char *str, t_coordinates *result);
+}
+
+void					set_coordinates5(char *str, t_coordinates *result)
+{
+	if (ft_strequ(T13, str) == 1)
+	{
+		result->x1 = 0;
+		result->x2 = 0;
+		result->x3 = 1;
+	}
+	else if (ft_strequ(T14, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = 2;
+		result->x3 = 0;
+	}
+	else if (ft_strequ(T15, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = 1;
+		result->x3 = 1;
+	}
+	else
+		set_coordinates6(char *str, t_coordinates *result);
+}
+
+void					set_coordinates4(char *str, t_coordinates *result)
+{
+	if (ft_strequ(T10, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = 2;
+		result->x3 = 2;
+	}
+	else if (ft_strequ(T11, str) == 1)
+	{
+		result->x1 = 0;
+		result->x2 = -1;
+		result->x3 = 0;
+	}
+	else if (ft_strequ(T12, str) == 1)
+	{
+		result->x1 = -2;
+		result->x2 = -1;
+		result->x3 = 0;
+	}
+	else
+		set_coordinates5(char *str, t_coordinates *result);
+}
+
+void					set_coordinates3(char *str, t_coordinates *result)
+{
+	if (ft_strequ(T7, str) == 1)
+	{
+		result->x1 = -1;
+		result->x2 = 0;
+		result->x3 = -1;
+	}
+	else if (ft_strequ(T8, str) == 1)
+	{
+		result->x1 = 0;
+		result->x2 = 1;
+		result->x3 = 2;
+	}
+	else if (ft_strequ(T9, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = 0;
+		result->x3 = 0;
+	}
+	else
+		set_coordinates4(char *str, t_coordinates *result);
+}
+
+void					set_coordinates2(char *str, t_coordinates *result)
+{
+	if (ft_strequ(T4, str) == 1)
+	{
+		result->x1 = 0;
+		result->x2 = 1;
+		result->x3 = 1;
+	}
+	else if (ft_strequ(T5, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = 1;
+		result->x3 = 2;
+	}
+	else if (ft_strequ(T6, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = -1;
+		result->x3 = 0;
+	}
+	else
+		set_coordinates3(char *str, t_coordinates *result);
+}
+
 void					set_coordinates(char *str, t_coordinates *result)
 {
-	int i;
-	int count;
-	int start;
-
-	i = 1;
-	start = 0;
-	count = 0;
-	while (count < 3)
+	if (ft_strequ(T1, str) == 1)
 	{
-		//TODO: Write non-shite
-		// if (str[i] == '#')
-		// {
-		// 	if (i % 4 == 0)
-		// 		coordinates[count] = 0;
-		// 	else if (i % 4 == 1)
-		// 		coordinates[count] = 1;
-		// 	else if (i % 4 == 2)
-		// 		coordinates[count] = 2;
-		// 	else
-		// 		coordinates[count] = 3;
-		// 	count++;
-		// }
-		// i++;
-		ft_read_from_abs_str(str);
+		result->x1 = 1;
+		result->x2 = 2;
+		result->x3 = 3;
 	}
+	else if (ft_strequ(T2, str) == 1)
+	{
+		result->x1 = 0;
+		result->x2 = 0;
+		result->x3 = 0;
+	}
+	else if (ft_strequ(T3, str) == 1)
+	{
+		result->x1 = 1;
+		result->x2 = 0;
+		result->x3 = 1;
+	}
+	else
+		set_coordinates2(char *str, t_coordinates *result);
 	set_y_coordinates(str, result);
 }
 

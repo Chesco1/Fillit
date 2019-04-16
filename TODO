@@ -17,7 +17,8 @@
 	READY
 
 3. Write state expander
-	find_coordinates
+	find_coordinates							DONE
+		store coordinates in lookup array
 	get_legal_moves
 	fix list order
 	place_tet
