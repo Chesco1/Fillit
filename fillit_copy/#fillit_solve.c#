@@ -84,7 +84,15 @@ static int	initial_solve(int **tet_array, unsigned char *field, int i,
 static int	final_solve(int **tet_array, unsigned char *field, int i, int strlen)
 {
 	int	j;
+	static int b;
 
+	if (b > 1000000)
+	{
+		ft_putendl(field);
+		ft_putchar('\n');
+		b = 0;
+	}
+	b++;
 	if (tet_array[i] == NULL)
         return (1);
 	if (tet_array[i][6] != -1)
