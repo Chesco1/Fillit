@@ -14,7 +14,7 @@
 
 int	evaluate_state(t_state *state)
 {
-	int 	score;
+	int score;
 
 	score = ft_max(state->field_width, state->field_height);
 	score += (state->n_unplaced_tets);

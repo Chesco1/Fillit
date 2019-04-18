@@ -252,7 +252,8 @@ t_coordinates			*find_coordinates(int id)
 			sizeof(t_coordinates*) * N_UNIQUE_TETS);
 	if (coordinate_table[id - 1] == NULL)
 	{
-		coordinate_table[id - 1] = (t_coordinates*)malloc(sizeof(t_coordinates));
+		coordinate_table[id - 1] = (t_coordinates*)malloc(\
+			sizeof(t_coordinates));
 		coordinate_table[id - 1] = generate_coordinates(id);
 	}
 	return (coordinate_table[id - 1]);
