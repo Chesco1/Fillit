@@ -18,6 +18,8 @@ int     is_legal(int **tet_array, const int i, const unsigned char *field,
 	int *tetrimino;
 
     tetrimino = tet_array[i];
+    if (tetrimino[7] != -1)
+      return (0);
     if (tetrimino[6] != -1)
     {
 		if (j <= tet_array[tetrimino[6]][7] || (tet_array[tetrimino[6]][7] == -1))

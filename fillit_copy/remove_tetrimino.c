@@ -10,21 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-void	remove_tetrimino(int *tetrimino, char *index_field)
-{
-	int i;
-
-	i = 0;
-	while (tetrimino[i] != -1)
-	{
-		index_field[tetrimino[i]] = '.';
-		i++;
-	}
-	tetrimino[7] = -1;
-}
-*/
-
 void    remove_tetrimino(int *tetrimino, unsigned char *index_field)
 {
   index_field[tetrimino[0]] = '.';

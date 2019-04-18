@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	clean_field(unsigned char *field)
+#include "fillit.h"
+
+void	clean_field(unsigned char *field, int **tet_array)
 {
 	int i;
 
@@ -21,4 +23,10 @@ void	clean_field(unsigned char *field)
 			field[i] = '.';
 		i++;
 	}
+	i = 0;
+	while (tet_array[i] != NULL)
+	  {
+	    tet_array[i][7] = -1;
+	    i++;
+	  }
 }

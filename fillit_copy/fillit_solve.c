@@ -84,7 +84,7 @@ static int	initial_solve(int **tet_array, unsigned char *field, int i,
 static int	final_solve(int **tet_array, unsigned char *field, int i, int strlen)
 {
 	int	j;
-
+	
 	if (tet_array[i] == NULL)
         return (1);
 	if (tet_array[i][6] != -1)
@@ -98,7 +98,7 @@ static int	final_solve(int **tet_array, unsigned char *field, int i, int strlen)
 		if (is_legal2(tet_array, i, field, j) == 1)
 		{
 			place_tetrimino(tet_array[i], &field[j], j);
-			if (was_bad_move(tet_array, i, field, strlen) == 0)
+      			if (j > 22 || was_bad_move(tet_array, i, field, strlen) == 0)
 			{
 				if (final_solve(tet_array, field, i + 1, strlen) == 1)
 					return (1);
@@ -126,7 +126,7 @@ int			fillit_solve(int **tet_array, const int tet_amount)
 	}
 	ft_putendl((char *)field);
 	ft_putchar('\n');
-	clean_field(field);
+	clean_field(field, tet_array);
 	final_solve(tet_array, field, 0, strlen);
 	ft_putendl((char *)field);
 	return (0);

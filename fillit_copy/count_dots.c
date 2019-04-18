@@ -19,7 +19,7 @@ int		count_dots(const unsigned char *field, const int *tetrimino)
 
     i = 0;
     dots = 0;
-    while (i <= (tetrimino[7]) - 1)
+    while (i <= (tetrimino[7] + tetrimino[3] - 1))
     {
         if (field[i] == '.')
             dots++;

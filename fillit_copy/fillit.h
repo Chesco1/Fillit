@@ -64,7 +64,7 @@ int     		was_bad_move(int **tet_array, const int tet_index_at_call,
 int				was_bad_move2(int **tet_array, const int tet_index_at_call,
 				unsigned char *field, int *j);
 unsigned char	get_max_dots(const int tet_amount);
-void			clean_field(unsigned char *field);
+void			clean_field(unsigned char *field, int **tet_array);
 int 			count_dots(const unsigned char *field, const int *tetrimino);
 
 #endif
