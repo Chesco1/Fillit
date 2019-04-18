@@ -24,11 +24,11 @@ void					set_y_coordinates(char *str, t_coordinates *result)
 		if (str[i] == '#')
 		{
 			if (count == 0)
-				result.pos1.y = i / 4;
+				result->pos1.y = i / 4;
 			else if (count == 1)
-				result.pos2.y = i / 4;
-			else (count == 2)
-				result.pos3.y = i / 4;
+				result->pos2.y = i / 4;
+			else
+				result->pos3.y = i / 4;
 			count++;
 		}
 		i++;
@@ -37,11 +37,11 @@ void					set_y_coordinates(char *str, t_coordinates *result)
 
 void					set_coordinates7(char *str, t_coordinates *result)
 {
-	if (ft_strequ(T19ß, str) == 1)
+	if (ft_strequ(T19, str) == 1)
 	{
-		result.pos1.x = -1;
-		result.pos2.x = 0;
-		result.pos3.x = 0;
+		result->pos1.x = -1;
+		result->pos2.x = 0;
+		result->pos3.x = 0;
 	}
 }
 
@@ -49,144 +49,144 @@ void					set_coordinates6(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T16, str) == 1)
 	{
-		result.pos1.x = -1;
-		result.pos2.x = 0;
-		result.pos3.x = 1;
+		result->pos1.x = -1;
+		result->pos2.x = 0;
+		result->pos3.x = 1;
 	}
 	else if (ft_strequ(T17, str) == 1)
 	{
-		result.pos1.x = 0;
-		result.pos2.x = 1;
-		result.pos3.x = 0;
+		result->pos1.x = 0;
+		result->pos2.x = 1;
+		result->pos3.x = 0;
 	}
 	else if (ft_strequ(T18, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 2;
-		result.pos3.x = 1;
+		result->pos1.x = 1;
+		result->pos2.x = 2;
+		result->pos3.x = 1;
 	}
 	else
-		set_coordinates7(char *str, t_coordinates *result);
+		set_coordinates7(str, result);
 }
 
 void					set_coordinates5(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T13, str) == 1)
 	{
-		result.pos1.x = 0;
-		result.pos2.x = 0;
-		result.pos3.x = 1;
+		result->pos1.x = 0;
+		result->pos2.x = 0;
+		result->pos3.x = 1;
 	}
 	else if (ft_strequ(T14, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 2;
-		result.pos3.x = 0;
+		result->pos1.x = 1;
+		result->pos2.x = 2;
+		result->pos3.x = 0;
 	}
 	else if (ft_strequ(T15, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 1;
-		result.pos3.x = 1;
+		result->pos1.x = 1;
+		result->pos2.x = 1;
+		result->pos3.x = 1;
 	}
 	else
-		set_coordinates6(char *str, t_coordinates *result);
+		set_coordinates6(str, result);
 }
 
 void					set_coordinates4(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T10, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 2;
-		result.pos3.x = 2;
+		result->pos1.x = 1;
+		result->pos2.x = 2;
+		result->pos3.x = 2;
 	}
 	else if (ft_strequ(T11, str) == 1)
 	{
-		result.pos1.x = 0;
-		result.pos2.x = -1;
-		result.pos3.x = 0;
+		result->pos1.x = 0;
+		result->pos2.x = -1;
+		result->pos3.x = 0;
 	}
 	else if (ft_strequ(T12, str) == 1)
 	{
-		result.pos1.x = -2;
-		result.pos2.x = -1;
-		result.pos3.x = 0;
+		result->pos1.x = -2;
+		result->pos2.x = -1;
+		result->pos3.x = 0;
 	}
 	else
-		set_coordinates5(char *str, t_coordinates *result);
+		set_coordinates5(str, result);
 }
 
 void					set_coordinates3(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T7, str) == 1)
 	{
-		result.pos1.x = -1;
-		result.pos2.x = 0;
-		result.pos3.x = -1;
+		result->pos1.x = -1;
+		result->pos2.x = 0;
+		result->pos3.x = -1;
 	}
 	else if (ft_strequ(T8, str) == 1)
 	{
-		result.pos1.x = 0;
-		result.pos2.x = 1;
-		result.pos3.x = 2;
+		result->pos1.x = 0;
+		result->pos2.x = 1;
+		result->pos3.x = 2;
 	}
 	else if (ft_strequ(T9, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 0;
-		result.pos3.x = 0;
+		result->pos1.x = 1;
+		result->pos2.x = 0;
+		result->pos3.x = 0;
 	}
 	else
-		set_coordinates4(char *str, t_coordinates *result);
+		set_coordinates4(str, result);
 }
 
 void					set_coordinates2(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T4, str) == 1)
 	{
-		result.pos1.x = 0;
-		result.pos2.x = 1;
-		result.pos3.x = 1;
+		result->pos1.x = 0;
+		result->pos2.x = 1;
+		result->pos3.x = 1;
 	}
 	else if (ft_strequ(T5, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 1;
-		result.pos3.x = 2;
+		result->pos1.x = 1;
+		result->pos2.x = 1;
+		result->pos3.x = 2;
 	}
 	else if (ft_strequ(T6, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = -1;
-		result.pos3.x = 0;
+		result->pos1.x = 1;
+		result->pos2.x = -1;
+		result->pos3.x = 0;
 	}
 	else
-		set_coordinates3(char *str, t_coordinates *result);
+		set_coordinates3(str, result);
 }
 
 void					set_coordinates(char *str, t_coordinates *result)
 {
 	if (ft_strequ(T1, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 2;
-		result.pos3.x = 3;
+		result->pos1.x = 1;
+		result->pos2.x = 2;
+		result->pos3.x = 3;
 	}
 	else if (ft_strequ(T2, str) == 1)
 	{
-		result.pos1.x = 0;
-		result.pos2.x = 0;
-		result.pos3.x = 0;
+		result->pos1.x = 0;
+		result->pos2.x = 0;
+		result->pos3.x = 0;
 	}
 	else if (ft_strequ(T3, str) == 1)
 	{
-		result.pos1.x = 1;
-		result.pos2.x = 0;
-		result.pos3.x = 1;
+		result->pos1.x = 1;
+		result->pos2.x = 0;
+		result->pos3.x = 1;
 	}
 	else
-		set_coordinates2(char *str, t_coordinates *result);
+		set_coordinates2(str, result);
 	set_y_coordinates(str, result);
 }
 
@@ -256,20 +256,4 @@ t_coordinates			*find_coordinates(int id)
 		coordinate_table[id - 1] = generate_coordinates(id);
 	}
 	return (coordinate_table[id - 1]);
-}
-
-int		main(void)
-{
-	int i;
-	int *coordinates;
-
-	i = 0;
-	coordinates = get_y_coordinates("##..##");
-	ft_putnbr(coordinates[0]);
-	ft_putchar('\n');
-	ft_putnbr(coordinates[1]);
-	ft_putchar('\n');
-	ft_putnbr(coordinates[2]);
-	ft_putchar('\n');
-	return (0);
 }

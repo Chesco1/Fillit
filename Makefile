@@ -34,6 +34,7 @@ clean :
 fclean : clean
 	@rm -f *.o
 	@rm -f $(NAME)
+	@rm -f a.out
 	@make fclean -C ./libft/
 
 re : fclean all

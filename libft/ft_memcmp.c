@@ -52,7 +52,7 @@ static unsigned long	memcmp_wordcmp(\
 	return (n);
 }
 
-int					ft_memcmp(const void *s1, const void *s2, size_t n)
+int						ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*str1;
 	unsigned char	*str2;

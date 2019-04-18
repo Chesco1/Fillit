@@ -46,7 +46,7 @@
 
 typedef struct		s_state
 {
-	s_list			*field_rows;
+	t_list			*field_rows;
 	char			*unplaced_tets;
 	int				used_letters;
 	char			n_unplaced_tets;
@@ -54,29 +54,30 @@ typedef struct		s_state
 	char			field_height;
 }					t_state;
 
-typedef	struct		s_coordinates
-{
-	s_pos			pos1;
-	s_pos			pos2;
-	s_pos			pos3;
-}					t_coordinates;
-
 typedef struct		s_pos
 {
 	int				x;
 	int				y;
 }					t_pos;
 
-int		ft_strcmp_ignore_nl(const char *s1, const char *s2);
-int		ft_strequ_in(char const *s1, char const *s2, char *initial_tets);
-int		input_is_valid(char *input, char *initial_tets);
-char	*get_input(int fd);
-int		check_tetriminos(char *str, char *initial_tets);
-int		evaluate_state(t_state *state);
-t_state	*init_state(char *tets, int n_tets);
-t_state	*make_new_state(\
-			t_state *state, t_list *current_line, int tet_index, t_pos *move);
-int		get_move(\
-			t_state *old_state, t_list *current_line, int id);
+typedef	struct		s_coordinates
+{
+	t_pos			pos1;
+	t_pos			pos2;
+	t_pos			pos3;
+}					t_coordinates;
+
+int					ft_strcmp_ignore_nl(const char *s1, const char *s2);
+int					ft_strequ_in(\
+						char const *s1, char const *s2, char *initial_tets);
+int					input_is_valid(char *input, char *initial_tets);
+char				*get_input(int fd);
+int					check_tetriminos(char *str, char *initial_tets);
+int					evaluate_state(t_state *state);
+t_state				*init_state(char *tets, int n_tets);
+t_state				*make_new_state(t_state *state, t_list *current_line,\
+						int tet_index, t_pos *move);
+int					get_move(\
+						t_state *old_state, t_list *current_line, int id);
 
 #endif

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   make_new_state.c                                        :+:    :+:            */
+/*   make_new_state.c                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
@@ -12,9 +12,9 @@
 
 static char	set_char(int *used_letters, int index)
 {
-	int		unused_letters_seen;
-	int		letter;
-	int 	bit_pointer;
+	int	unused_letters_seen;
+	int	letter;
+	int	bit_pointer;
 
 	unused_letters_seen = 0;
 	bit_pointer = 0x1;
@@ -48,7 +48,7 @@ static char	*set_unplaced_tets(\
 	return (unplaced_tets);
 }
 
-t_state	*make_new_state(\
+t_state		*make_new_state(\
 	t_state *state, t_list *current_line, int tet_index, t_pos *move)
 {
 	t_state	*new_state;

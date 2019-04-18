@@ -60,7 +60,7 @@ static int	tet_identify(char *str)
 		return (tet_identify2(str));
 }
 
-int	ft_strequ_in(char const *s1, char const *s2, char *initial_tets)
+int			ft_strequ_in(char const *s1, char const *s2, char *initial_tets)
 {
 	static int i = 0;
 

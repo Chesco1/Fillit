@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	int		fd;
 	int		tet_amount;
@@ -41,7 +41,7 @@ int		main(int argc, char **argv)
 			// fillit_solve(&alst);
 		}
 		else
-			ft_putendl("error"); 
+			ft_putendl("error");
 	}
 	else
 		ft_putendl("something something usage");

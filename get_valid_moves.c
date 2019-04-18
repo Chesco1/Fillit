@@ -55,14 +55,15 @@ static t_list	*get_tet_moves(t_state *state, int tet_index)
 	while (move.y <= state->field_height)
 	{
 		move.x = get_move(state, current_line, id);
-		ft_lstorder(moves, make_new_state(state, current_line, tet_index, move));
+		ft_lstorder(\
+			moves, make_new_state(state, current_line, tet_index, move));
 		current_line = current_line->next;
 		move.y++;
 	}
 	return (moves);
 }
 
-t_list 			*get_valid_moves(t_list **alst)
+t_list			*get_valid_moves(t_list **alst)
 {
 	t_list	*current_node;
 	t_list	*new_nodes;
@@ -82,7 +83,7 @@ t_list 			*get_valid_moves(t_list **alst)
 			continue ;
 		tet_stock |= 1 << current_state->unpalced_tets[tet_index - 1];
 		new_nodes = order_nodes(&new_nodes,\
-						get_tet_moves(current_state, tet_index - 1), ft_substract);
+			get_tet_moves(current_state, tet_index - 1), ft_substract);
 	}
 	*alst = order_nodes(alst, new_nodes, ft_substract);
 	ft_lstnodedel(current_node);
