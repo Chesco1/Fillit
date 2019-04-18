@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/26 21:34:27 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/05 15:50:49 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/18 17:23:01 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	clean_field(unsigned char *field, int **tet_array)
 	}
 	i = 0;
 	while (tet_array[i] != NULL)
-	  {
-	    tet_array[i][7] = -1;
-	    i++;
-	  }
+	{
+		tet_array[i][7] = -1;
+		i++;
+	}
 }

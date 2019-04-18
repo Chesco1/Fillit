@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:32:51 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/23 16:33:19 by fmiceli       ########   odam.nl         */
+/*   Updated: 2019/04/18 17:03:51 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,33 @@ static int	is_tetrimino(char *str, int len, int **array)
 	i = ft_strchr_int(str, '#');
 	str2 = ft_strsub(str, i, len - i);
 	if ((ft_strequ_in(T1, str2, array) == 1 && i % 5 == 0) ||
-		ft_strequ_in(T2, str2, array) == 1 ||
-		(ft_strequ_in(T3, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T4, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T5, str2, array) == 1 && (i + 2) % 5 != 0 &&
-			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T6, str2, array) == 1 && i % 5 != 0 &&
-			(i + 2) % 5 != 0) ||
-		(ft_strequ_in(T7, str2, array) == 1 && i % 5 != 0) ||
-		(ft_strequ_in(T8, str2, array) == 1 && (i + 2) % 5 != 0 &&
-			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T9, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T10, str2, array) == 1 && (i + 2) % 5 != 0 &&
-			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T11, str2, array) == 1 && i % 5 != 0) ||
-		(ft_strequ_in(T12, str2, array) == 1 && i % 5 != 0 &&
-			(i - 1) % 5 != 0) ||
-		(ft_strequ_in(T13, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T14, str2, array) == 1 && (i + 2) % 5 != 0 &&
-			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T15, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T16, str2, array) == 1 && i % 5 != 0 &&
-			(i + 2) % 5 != 0) ||
-		(ft_strequ_in(T17, str2, array) == 1 && (i + 2) % 5 != 0) ||
-		(ft_strequ_in(T18, str2, array) == 1 && (i + 2) % 5 != 0 &&
-			(i + 3) % 5 != 0) ||
-		(ft_strequ_in(T19, str2, array) == 1 && i % 5 != 0))
-		return (1);
+			ft_strequ_in(T2, str2, array) == 1 ||
+			(ft_strequ_in(T3, str2, array) == 1 && (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T4, str2, array) == 1 && (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T5, str2, array) == 1 && (i + 2) % 5 != 0 &&
+			 (i + 3) % 5 != 0) ||
+			(ft_strequ_in(T6, str2, array) == 1 && i % 5 != 0 &&
+			 (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T7, str2, array) == 1 && i % 5 != 0) ||
+			(ft_strequ_in(T8, str2, array) == 1 && (i + 2) % 5 != 0 &&
+			 (i + 3) % 5 != 0) ||
+			(ft_strequ_in(T9, str2, array) == 1 && (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T10, str2, array) == 1 && (i + 2) % 5 != 0 &&
+			 (i + 3) % 5 != 0) ||
+			(ft_strequ_in(T11, str2, array) == 1 && i % 5 != 0) ||
+			(ft_strequ_in(T12, str2, array) == 1 && i % 5 != 0 &&
+			 (i - 1) % 5 != 0) ||
+			(ft_strequ_in(T13, str2, array) == 1 && (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T14, str2, array) == 1 && (i + 2) % 5 != 0 &&
+			 (i + 3) % 5 != 0) ||
+			(ft_strequ_in(T15, str2, array) == 1 && (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T16, str2, array) == 1 && i % 5 != 0 &&
+			 (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T17, str2, array) == 1 && (i + 2) % 5 != 0) ||
+			(ft_strequ_in(T18, str2, array) == 1 && (i + 2) % 5 != 0 &&
+			 (i + 3) % 5 != 0) ||
+			(ft_strequ_in(T19, str2, array) == 1 && i % 5 != 0))
+			return (1);
 	return (0);
 }
 

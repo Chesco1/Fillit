@@ -6,14 +6,14 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/28 11:54:34 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/18 16:01:28 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/18 17:15:41 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int     was_bad_move2(int **tet_array, const int tet_index_at_call,
-				unsigned char *field, int *j)
+int		was_bad_move2(int **tet_array, const int tet_index_at_call,
+		unsigned char *field, int *j)
 {
 	int i;
 	int strlen;
@@ -39,7 +39,7 @@ int     was_bad_move2(int **tet_array, const int tet_index_at_call,
 	return (1);
 }
 
-int     was_bad_move(int **tet_array, const int tet_index_at_call,
+int		was_bad_move(int **tet_array, const int tet_index_at_call,
 		unsigned char *field, const int strlen)
 {
 	int j;
@@ -50,7 +50,7 @@ int     was_bad_move(int **tet_array, const int tet_index_at_call,
 	j = 0;
 	loops = 0;
 	dots = count_dots(field, tet_array[tet_index_at_call]);
-	max_dots = field[170];                                                           
+	max_dots = field[170];
 	if (dots > max_dots && max_dots <= 5)
 	{
 		while (loops <= max_dots)
