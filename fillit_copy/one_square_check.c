@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   count_dots.c                                       :+:    :+:            */
+/*   one_square_check.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/04/17 14:53:45 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/18 12:51:15 by ccoers        ########   odam.nl         */
+/*   Created: 2019/04/18 16:49:18 by ccoers        #+#    #+#                 */
+/*   Updated: 2019/04/18 16:54:52 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		count_dots(const unsigned char *field, const int *tetrimino)
+void	one_square_check(int **tet_array)
 {
-    int i;
-    int dots;
-
-    i = 0;
-    dots = 0;
-    while (i <= (tetrimino[7] + tetrimino[3] - 1))
-    {
-        if (field[i] == '.')
-            dots++;
-        i++;
-    }
-    return (dots);
+	if (tet_array[0][0] == 0 && tet_array[0][1] == 1 &&
+		tet_array[0][2] == 4 && tet_array[0][3] == 5 &&
+		tet_array[1] == NULL)
+	{
+		ft_putendl("AA\nAA");
+		exit(0);
+	}
 }

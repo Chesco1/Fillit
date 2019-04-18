@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:01:36 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/17 16:59:41 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/18 16:53:14 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 static int	find_legal_pos(int **tet_array, const int i,
 			unsigned char *field, int strlen)
 {
-	int j;
-	int dots;
-	int max_dots;
+	int		j;
+	int		dots;
+	int		max_dots;
   
 	j = 0;
 	max_dots = field[170];
@@ -40,7 +40,7 @@ static int	find_legal_pos(int **tet_array, const int i,
 
 static int	is_done(int **tet_array)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (tet_array[i] != NULL)
@@ -55,7 +55,7 @@ static int	is_done(int **tet_array)
 static int	initial_solve(int **tet_array, unsigned char *field, int i,
 			const int strlen)
 {
-	int j;
+	int		j;
  
 	if (is_done(tet_array) == 1)
 		return (1);
@@ -98,7 +98,7 @@ static int	final_solve(int **tet_array, unsigned char *field, int i, int strlen)
 		if (is_legal2(tet_array, i, field, j) == 1)
 		{
 			place_tetrimino(tet_array[i], &field[j], j);
-      			if (j > 22 || was_bad_move(tet_array, i, field, strlen) == 0)
+			if (was_bad_move(tet_array, i, field, strlen) == 0)
 			{
 				if (final_solve(tet_array, field, i + 1, strlen) == 1)
 					return (1);
@@ -119,13 +119,12 @@ int			fillit_solve(int **tet_array, const int tet_amount)
 	i = 0;
 	field = make_field(tet_amount, tet_array, 0);
 	strlen = field[171];
+	one_square_check(tet_array);
 	while (initial_solve(tet_array, field, i, strlen) != 1)
 	{
 		expand_field(field, ft_linelen((char *)field), tet_array);
 		strlen = ft_strlen((char *)field);
 	}
-	ft_putendl((char *)field);
-	ft_putchar('\n');
 	clean_field(field, tet_array);
 	final_solve(tet_array, field, 0, strlen);
 	ft_putendl((char *)field);

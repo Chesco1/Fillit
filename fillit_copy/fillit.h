@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 12:09:41 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/17 14:55:52 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/18 16:53:04 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ int				was_bad_move2(int **tet_array, const int tet_index_at_call,
 unsigned char	get_max_dots(const int tet_amount);
 void			clean_field(unsigned char *field, int **tet_array);
 int 			count_dots(const unsigned char *field, const int *tetrimino);
+void			one_square_check(int **tet_array);
 
 #endif
