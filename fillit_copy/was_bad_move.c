@@ -51,7 +51,7 @@ int		was_bad_move(int **tet_array, const int tet_index_at_call,
 	loops = 0;
 	dots = count_dots(field, tet_array[tet_index_at_call]);
 	max_dots = field[170];
-	if (dots > max_dots && max_dots <= 5)
+	if (dots > max_dots && (max_dots <= 5 || tet_index_at_call < 12))
 	{
 		while (loops <= max_dots)
 		{

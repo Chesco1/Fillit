@@ -57,6 +57,6 @@ void		expand_field(unsigned char *field, int linelen, int **array)
 	field[i] = '\0';
 	if (field[170] != 255)
 		field[170] += linelen * 2 - 1;
-	field[171] = ft_strlen((char *)field);
+	field[171] = (unsigned char)ft_strlen((char *)field);
 	adjust_tets_to_field(array);
 }

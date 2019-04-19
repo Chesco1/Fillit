@@ -21,8 +21,6 @@ static int	find_legal_pos(int **tet_array, const int i,
 
 	j = 0;
 	max_dots = field[170];
-	ft_putnbr(strlen);
-	ft_putchar('\n');
 	dots = 0;
 	if (tet_array[i][7] != -1)
 		return (-2);
@@ -66,17 +64,13 @@ static int	initial_solve(int **tet_array, unsigned char *field, int i,
 		while (tet_array[i + 1] != NULL && tet_array[i][7] != -1)
 			i++;
 		j = find_legal_pos(tet_array, i, field, strlen);
-		ft_putnbr(j);
-		ft_putchar('\n');
 		if (j == -2)
 		{
 			i++;
 			continue ;
 		}
 		else if (j == -1)
-		{
 			return (0);
-		}
 		place_tetrimino(tet_array[i], &field[j], j);
 		tet_array[i][7] = j;
 		if (initial_solve(tet_array, field, 0, strlen) == 1)
@@ -124,7 +118,8 @@ int			fillit_solve(int **tet_array, const int tet_amount)
 
 	i = 0;
 	field = make_field(tet_amount, tet_array, 0);
-	strlen = field[171];
+	strlen = (unsigned char)ft_strlen((char *)field);
+	field[171] = strlen;
 	one_square_check(tet_array);
 	while (initial_solve(tet_array, field, i, strlen) != 1)
 	{
