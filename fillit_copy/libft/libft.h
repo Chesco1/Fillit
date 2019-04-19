@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/01/11 11:56:34 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/05 13:36:29 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/19 16:10:33 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,6 @@ int					ft_tolower(int c);
 
 int					ft_min(int x, int y);
 int					ft_max(int x, int y);
-int					ft_strlen_short(short *str);
-int 	    	    ft_linelen_short(short *str);
 
 size_t				ft_strlen(const char *str);
 size_t				ft_linelen(const char *str);
@@ -97,7 +95,7 @@ void				*ft_memalloc(size_t size);
 
 void				*ft_memset(void *b, int c, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
-int     			ft_memchr_int(const void *s, int c, size_t n);
+int					ft_memchr_int(const void *s, int c, size_t n);
 void				*ft_slow_memchr(const void *s, int c, size_t n);
 
 int					*ft_range(int min, int max);

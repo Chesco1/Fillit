@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:09:24 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/18 17:44:10 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/19 13:21:19 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ int		main(int argc, char **argv)
 			ft_putendl("error");
 	}
 	else
-		ft_putendl("something something usage");
+		ft_putendl("usage: ./fillit source_file");
 	return (0);
 }
