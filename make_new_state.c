@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static char	set_char(int *used_letters, int index)
+#include "fillit.h"
+
+static char		set_char(int *used_letters, int index)
 {
 	int	unused_letters_seen;
 	int	letter;
@@ -34,7 +36,7 @@ static char	set_char(int *used_letters, int index)
 	return ((unsigned char)(letter + 'A'));
 }
 
-static char	*set_unplaced_tets(\
+static char		*set_unplaced_tets(\
 	t_state *old_state, int n_unplaced_tets, int tet_index)
 {
 	char	*unplaced_tets;
@@ -48,7 +50,7 @@ static char	*set_unplaced_tets(\
 	return (unplaced_tets);
 }
 
-t_state		*make_new_state(\
+t_state			*make_new_state(\
 	t_state *state, t_list *current_line, int tet_index, t_pos *move)
 {
 	t_state	*new_state;
@@ -60,5 +62,7 @@ t_state		*make_new_state(\
 		state, new_state->n_unplaced_tets, tet_index);
 	new_state->used_letters = state->used_letters;
 	c = set_char(&(new_state->used_letters), tet_index);
+	new_state = do_move(\
+		new_state, move, find_coordinates(state->unplaced_tets[tet_index]), c);
 	return (new_state);
 }
