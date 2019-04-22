@@ -20,8 +20,7 @@ t_list	*init_field(char *tets, int n_tets)
 	int		n;
 
 	n = ft_sqrt_floor(4 * n_tets);
-	row = (char*)malloc(sizeof(char) * n);
-	row = ft_memset('.', n);
+	row = (char*)ft_memalloc(sizeof(char) * (n + 1));
 	field = ft_lstnew(row, n);
 	if (!field)
 		return (NULL);
