@@ -6,18 +6,19 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 17:43:02 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/18 18:01:01 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/22 16:43:35 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-unsigned char	*make_field(int tet_amount, int **tet_array, int i)
+void	make_field(int tet_amount, int **tet_array, int i, unsigned char *field)
 {
-	unsigned char	*field;
-
-	field = (unsigned char *)ft_memdup("...\n...\n...\0", 180);
-	if (tet_amount == 5 || tet_amount == 6)
+	ft_bzero(field, 180);
+	ft_memcpy(field, "...\n...\n...\0", 180);
+	if (tet_amount == 3 || tet_amount == 4)
+		i = 2;
+	else if (tet_amount == 5 || tet_amount == 6)
 		i = 2;
 	else if (tet_amount >= 7 && tet_amount <= 9)
 		i = 3;
@@ -38,5 +39,4 @@ unsigned char	*make_field(int tet_amount, int **tet_array, int i)
 		i--;
 	}
 	field[170] = get_max_dots(tet_amount);
-	return (field);
 }

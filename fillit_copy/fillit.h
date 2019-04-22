@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 12:09:41 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/19 16:05:21 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/22 19:46:24 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,13 @@
 
 int				check_tetriminos(char *str, int **tet_array);
 int				ft_strcmp_ignore_nl(const char *s1, const char *s2);
-int				ft_strequ_in(char const *s1, char const *s2,
+int				ft_strequ_ignore_nl(char const *s1, char const *s2,
 				int **array);
 int				fillit_solve(int **tet_array, int tet_amount);
 int				input_is_valid(char *input, int **tet_array);
 char			*get_input(int fd);
-unsigned char	*make_field(int tet_amount, int **tet_array, int i);
+void			make_field(int tet_amount, int **tet_array, int i,
+				unsigned char *field);
 void			expand_field(unsigned char *field, int linelen,
 				int **tet_array);
 void			place_tetrimino(int *tetrimino, unsigned char *index_field,
@@ -60,12 +61,13 @@ int				is_legal2(int **tet_array, const int i,
 				const unsigned char *field,
 				const int j);
 int				was_bad_move(int **tet_array, const int tet_index_at_call,
-				unsigned char *field, const int strlen);
+				unsigned char *field, const int max_dots);
 int				was_bad_move2(int **tet_array, const int tet_index_at_call,
 				unsigned char *field, int *j);
 unsigned char	get_max_dots(const int tet_amount);
 void			clean_field(unsigned char *field, int **tet_array);
 int				count_dots(const unsigned char *field, const int *tetrimino);
 void			one_square_check(int **tet_array);
+void			free_tets(int **tet_array);
 
 #endif

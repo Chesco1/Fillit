@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/04/18 16:49:18 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/18 16:54:52 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/22 19:23:20 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	one_square_check(int **tet_array)
 		tet_array[1] == NULL)
 	{
 		ft_putendl("AA\nAA");
+		free_tets(tet_array);
 		exit(0);
 	}
 }

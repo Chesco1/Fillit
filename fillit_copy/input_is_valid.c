@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/02/28 11:48:17 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/03/25 14:55:05 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/22 19:40:35 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,8 @@ static int		input_is_valid1(char *input)
 	return (1);
 }
 
-int				input_is_valid(char *input, int **array)
+int				input_is_valid(char *input, int **tet_array)
 {
-	char	*str;
-	int		i;
-
 	if (input_is_valid1(input) == 0)
 		return (0);
 	if (input_is_valid2(input) == 0)
@@ -115,7 +112,7 @@ int				input_is_valid(char *input, int **array)
 		return (0);
 	if (input_is_valid4(input) == 0)
 		return (0);
-	if (check_tetriminos(input, array) == 0)
+	if (check_tetriminos(input, tet_array) == 0)
 		return (0);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:09:24 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/04/19 13:21:19 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/22 19:28:59 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int		main(int argc, char **argv)
 		{
 			tet_array[tet_amount] = NULL;
 			fillit_solve(tet_array, tet_amount);
+			free_tets(tet_array);
 		}
 		else
 			ft_putendl("error");

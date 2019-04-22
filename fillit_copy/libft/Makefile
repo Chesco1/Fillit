@@ -6,7 +6,7 @@
 #    By: fmiceli <fmiceli@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/01/11 12:09:18 by fmiceli       #+#    #+#                  #
-#    Updated: 2019/02/04 15:39:38 by fmiceli       ########   odam.nl          #
+#    Updated: 2019/04/22 19:39:05 by ccoers        ########   odam.nl          #
 #                                                                              #
 #******************************************************************************#
 
@@ -27,7 +27,7 @@ SRCS=ft_atoi.c ft_bzero.c ft_count_if.c ft_foreach.c ft_isalnum.c ft_isalpha.c\
 	ft_strsub.c ft_strtrim.c ft_strupper.c ft_tolower.c ft_toupper.c\
 	ft_min.c ft_max.c ft_lstunlink.c ft_lstdequeue.c ft_slow_memchr.c\
 	ft_lsttoarray.c ft_delcontent.c ft_itoa_base.c ft_strchr_int.c\
-	index_n_char.c ft_linelen.c ft_strcmp_ignore_nl.c
+	index_n_char.c ft_linelen.c
 OBJS:=$(SRCS:.c=.o)
 FLAGS= -Wall -Wextra -Werror
 
