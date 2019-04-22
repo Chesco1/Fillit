@@ -18,8 +18,9 @@
 
 3. Write state expander
 	find_coordinates							DONE
-		store coordinates in lookup array
-	get_legal_moves
+		store coordinates in lookup array		DONE
+	get_valid_moves
+		get_move needs to be updated for sanity
 	fix list order
 	place_tet
 		field_rows + added tet
@@ -28,6 +29,8 @@
 		max(Field Width, widest new row)
 		max(Field Height, highest y offset)
 		used_letters |= indexed 0				DONE
+		expand field if widest row is wider than
+			before.
 
 4. Heuristic Search
 	design heuristic
@@ -42,9 +45,10 @@
 
 update libft
 
+improve init_state
+	init_field??
+
 Readability
 	get_valid_moves
 
 struct byte allocation optimization celebration penetration emasculation amalgamation.
-
-de-stupify field
