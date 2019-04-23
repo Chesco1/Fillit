@@ -6,63 +6,136 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:01:36 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/28 14:48:41 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/23 14:21:29 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int		is_legal(int *tetrimino, char *index_field)
+static int	find_legal_pos(int **tet_array, const int i,
+		unsigned char *field, const int strlen)
 {
-	if (index_field[tetrimino[1]] == '.' &&
-		index_field[tetrimino[2]] == '.' && index_field[tetrimino[3]] == '.')
-		return (1);
-	return (0);
-}
+	int		j;
+	int		dots;
+	int		max_dots;
 
-static int		solve(int **tet_array, char *field, int i)
-{
-	int	j;
-	static int k;
-
-	if (k == 1000000)
+	j = 0;
+	max_dots = MAX_DOTS;
+	dots = 0;
+	if (tet_array[i][7] != -1)
+		return (-2);
+	while (dots <= max_dots && j < strlen)
 	{
-		ft_putstr(field);
-		ft_putendl("\n");
-		k = 0;
-	}
-	if (tet_array[i] == NULL)
-        return (1);
-	j = tet_array[tet_array[i][6]][7] + 1;
-	while (field[j] != '\0')
-	{
-		while (field[j] != '.' && field[j] != '\0')
+		while (field[j] != '.' && j < strlen)
 			j++;
-		if (is_legal(tet_array[i], &field[j]) == 1)
-	    {
-			place_tetrimino(tet_array[i], &field[j]);
-			k++;
-			tet_array[i][7] = j;
-			if (solve(tet_array, field, i + 1) == 1)
-				return (1);
-			remove_tetrimino(tet_array[i], &field[j]);
-	    }
-	  j++;
+		if (is_legal(tet_array, i, field, j) == 1)
+			return (j);
+		j++;
+		dots++;
 	}
-	return (0);
+	if (dots > max_dots)
+		return (-2);
+	return (-1);
 }
 
-int				fillit_solve(int **tet_array, int tet_amount)
+static int	is_done(int **tet_array)
 {
-	char	*field;
 	int		i;
 
 	i = 0;
-	field = make_field(tet_amount, tet_array, 0);
-	while (solve(tet_array, field, 0) != 1)
+	while (tet_array[i] != NULL)
 	{
-	  expand_field(field, ft_linelen(field), tet_array);
+		if (tet_array[i][7] == -1)
+			return (0);
+		i++;
 	}
-	ft_putstr(field);
+	return (1);
+}
+
+static int	initial_solve(int **tet_array, unsigned char *field, int i,
+		const int strlen)
+{
+	int		j;
+
+	if (is_done(tet_array) == 1)
+		return (1);
+	while (tet_array[i] != NULL)
+	{
+		while (tet_array[i + 1] != NULL && tet_array[i][7] != -1)
+			i++;
+		j = find_legal_pos(tet_array, i, field, strlen);
+		if (j == -2)
+		{
+			i++;
+			continue ;
+		}
+		else if (j == -1)
+			return (0);
+		place_tetrimino(tet_array[i], &field[j], j);
+		tet_array[i][7] = j;
+		if (initial_solve(tet_array, field, 0, strlen) == 1)
+			return (1);
+		remove_tetrimino(tet_array[i], &field[j]);
+		i++;
+	}
+	return (0);
+}
+
+static int	final_solve(int **tet_array, unsigned char *field, int i,
+		int strlen)
+{
+	int	j;
+
+	if (tet_array[i] == NULL)
+		return (1);
+	if (tet_array[i][6] != -1)
+		j = tet_array[tet_array[i][6]][7] + 1;
+	else
+		j = 0;
+	while (field[j] != '\0')
+	{
+		while (field[j] != '.' && j < strlen)
+			j++;
+		if (is_legal2(tet_array, i, field, j) == 1)
+		{
+			place_tetrimino(tet_array[i], &field[j], j);
+			if (was_bad_move(tet_array, i, field, MAX_DOTS) == 0)
+			{
+				if (final_solve(tet_array, field, i + 1, strlen) == 1)
+					return (1);
+			}
+			remove_tetrimino(tet_array[i], &field[j]);
+		}
+		j++;
+	}
+	return (0);
+}
+
+int			fillit_solve(int **tet_array, const int tet_amount)
+{
+	unsigned char	field[180];
+	int				i;
+	int				strlen;
+
+	i = 0;
+	make_field(tet_amount, tet_array, 0, field);
+	strlen = (unsigned char)ft_strlen((char *)field);
+	STRLEN = strlen;
+	one_square_check(tet_array);
+	if (tet_amount > 14)
+	{
+		while (initial_solve(tet_array, field, i, strlen) != 1)
+		{
+			expand_field(field, ft_linelen((char *)field), tet_array);
+			strlen = ft_strlen((char *)field);
+		}
+		clean_field(field, tet_array);
+	}
+	while (final_solve(tet_array, field, 0, strlen) != 1)
+	{
+		expand_field(field, ft_linelen((char *)field), tet_array);
+		strlen = ft_strlen((char *)field);
+	}
+	ft_putendl((char *)field);
 	return (0);
 }

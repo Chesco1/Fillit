@@ -6,7 +6,7 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 16:09:24 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/23 16:09:25 by fmiceli       ########   odam.nl         */
+/*   Updated: 2019/04/22 19:28:59 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,21 +25,16 @@ int		main(int argc, char **argv)
 		input = get_input(fd);
 		tet_amount = (ft_strlen(input) + 1) / 21;
 		tet_array = (int **)malloc(sizeof(int *) * (tet_amount + 1));
-		if (fd == -1)
-		{
-			ft_putendl("error opening file");
-			return (0);
-		}
-		if (input_is_valid(input, tet_array) == 1)
+		if (input_is_valid(input, tet_array) == 1 && fd != -1)
 		{
 			tet_array[tet_amount] = NULL;
-//			ft_putendl("valid input");
 			fillit_solve(tet_array, tet_amount);
+			free_tets(tet_array);
 		}
 		else
-			ft_putendl("error"); 
+			ft_putendl("error");
 	}
 	else
-		ft_putendl("something something usage");
+		ft_putendl("usage: ./fillit source_file");
 	return (0);
 }

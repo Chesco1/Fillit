@@ -6,7 +6,7 @@
 #    By: ccoers <marvin@codam.nl>                     +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/04/22 15:57:58 by ccoers        #+#    #+#                  #
-#    Updated: 2019/04/22 20:05:39 by ccoers        ########   odam.nl          #
+#    Updated: 2019/04/23 14:32:46 by ccoers        ########   odam.nl          #
 #                                                                              #
 #******************************************************************************#
 
@@ -48,6 +48,7 @@ clean:
 	rm -f $(OBJECTS)
 	make -C libft/ clean
 	rm -f *~
+	rm -f .DS_Store
 
 fclean: clean
 	rm -f $(NAME)

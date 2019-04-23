@@ -6,7 +6,7 @@
 /*   By: ccoers <marvin@codam.nl>                     +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/28 11:54:34 by ccoers        #+#    #+#                 */
-/*   Updated: 2019/04/22 19:44:35 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/23 14:19:42 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		was_bad_move2(int **tet_array, const int tet_index_at_call,
 	int i;
 	int strlen;
 
-	strlen = field[171];
+	strlen = STRLEN;
 	while (field[*j] != '.' && *j < strlen)
 		(*j)++;
 	i = tet_index_at_call + 1;

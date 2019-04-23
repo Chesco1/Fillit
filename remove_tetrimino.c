@@ -6,19 +6,15 @@
 /*   By: fmiceli <fmiceli@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/03/23 17:59:18 by fmiceli       #+#    #+#                 */
-/*   Updated: 2019/03/28 14:48:04 by ccoers        ########   odam.nl         */
+/*   Updated: 2019/04/18 17:12:58 by ccoers        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	remove_tetrimino(int *tetrimino, char *index_field)
+void	remove_tetrimino(int *tetrimino, unsigned char *index_field)
 {
-	int i;
-
-	i = 0;
-	while (tetrimino[i] != -1)
-	{
-		index_field[tetrimino[i]] = '.';
-		i++;
-	}
+	index_field[tetrimino[0]] = '.';
+	index_field[tetrimino[1]] = '.';
+	index_field[tetrimino[2]] = '.';
+	index_field[tetrimino[3]] = '.';
 	tetrimino[7] = -1;
 }
